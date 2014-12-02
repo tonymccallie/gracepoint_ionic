@@ -1,7 +1,29 @@
 <ion-view title="Gracepoint">
 	<ion-content class="">
 		<ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
-		<img src="img/1a.jpg" style="width: 100%;" />
-		<h1>Home</h1>
+		<ion-slide-box does-continue="true" auto-play="true" on-slide-changed="slideHasChanged($index)">
+			<ion-slide>
+				<div class="box blue">
+					<img src="img/1a.jpg" style="width: 100%;" />
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<div class="box yellow">
+					<img src="img/2a.jpg" style="width: 100%;" />
+				</div>
+			</ion-slide>
+			<ion-slide>
+				<div class="box pink">
+					<img src="img/3a.jpg" style="width: 100%;" />
+				</div>
+			</ion-slide>
+		</ion-slide-box>
+		<div class="bar bar-positive">Section</div>
+		<div class="padding">
+			<img src="img/1a.jpg" style="width: 100%;" />
+			<img src="img/2a.jpg" style="width: 100%;" />
+			<img src="img/3a.jpg" style="width: 100%;" />
+			<img src="img/4a.jpg" style="width: 100%;" />
+		</div>
 	</ion-content>
 </ion-view>
