@@ -7825,6 +7825,16 @@ $ios-transition-box-shadow-end: -200px 0px 200px rgba(0,0,0,0.15), -5px 0px 5px 
   vertical-align: -0.15em;
   font-weight: normal; }
 
+.threeleaf-separator {
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  background: #CE4A3B;
+  line-height: 30px;
+  padding: 10px; }
+  .threeleaf-separator .threeleaf {
+    vertical-align: -0.13em; }
+
 .bar-positive .button.button-clear {
   font-size: 30px; }
 

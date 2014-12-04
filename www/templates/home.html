@@ -2,28 +2,18 @@
 	<ion-content class="">
 		<ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
 		<ion-slide-box does-continue="true" auto-play="true" on-slide-changed="slideHasChanged($index)">
-			<ion-slide>
+			<ion-slide ng-repeat="article in articles">
 				<div class="box blue">
-					<img src="img/1a.jpg" style="width: 100%;" />
-				</div>
-			</ion-slide>
-			<ion-slide>
-				<div class="box yellow">
-					<img src="img/2a.jpg" style="width: 100%;" />
-				</div>
-			</ion-slide>
-			<ion-slide>
-				<div class="box pink">
-					<img src="img/3a.jpg" style="width: 100%;" />
+					<img src="{{imageDir+article.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
 				</div>
 			</ion-slide>
 		</ion-slide-box>
-		<div class="bar bar-positive">Section</div>
+		<div class="threeleaf-separator"><span class="threeleaf">oy</span> COMMUNITY FEED</div>
 		<div class="padding">
-			<img src="img/1a.jpg" style="width: 100%;" />
-			<img src="img/2a.jpg" style="width: 100%;" />
-			<img src="img/3a.jpg" style="width: 100%;" />
-			<img src="img/4a.jpg" style="width: 100%;" />
+			<a href="" ng-repeat="post in posts">
+				{{post.CommunityPost.title}}
+				<img src="{{post.MediaImage.filename.length > 0 && imageDir+post.MediaImage.filename || imageDir+post.MediaVideo.preview }}/width:800/height:450/crop:true/zoom:auto/blur:true/greyscale:true" style="width: 100%;" />
+			</a>
 		</div>
 	</ion-content>
 </ion-view>

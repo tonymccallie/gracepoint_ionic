@@ -1,3 +1,15 @@
+var DOMAIN = 'http://www.gracepointcoppell.org'
+//DEVELOPMENT
+var devtest = /localhost/.test(window.location.hostname);
+if(devtest) {
+	DOMAIN = 'http://localhost/greyback_shiny';
+	isMobile = false;
+}
+devtest = /threeleaf/.test(window.location.hostname);
+if(devtest) {
+	DOMAIN = 'http://office.threeleaf.net:8080/greyback_shiny';
+	isMobile = false;
+}
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -42,7 +54,18 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 		url: '/home',
 		views: {
 			'tab-home': {
-				templateUrl: 'templates/home.html'
+				templateUrl: 'templates/home.html',
+				controller: 'HomeCtrl'
+			}
+		}
+	});
+	
+	$stateProvider.state('tab.article', {
+		url: '/article/:articleId',
+		views: {
+			'tab-home': {
+				templateUrl: 'templates/article.html',
+				controller: 'NewsCtrl'
 			}
 		}
 	});

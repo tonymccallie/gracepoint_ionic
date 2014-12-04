@@ -36,6 +36,18 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	font-weight: normal;
 }
 
+.threeleaf-separator {
+	color: $light;
+	font-size: 18px;
+	text-align: center;
+	.threeleaf {
+		vertical-align: -.13em;
+	}
+	background: $positive;
+	line-height: 30px;
+	padding: 10px;
+}
+
 .bar-positive .button.button-clear {
 	font-size: 30px;
 }
