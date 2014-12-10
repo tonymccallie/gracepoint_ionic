@@ -1,8 +1,9 @@
 <div ng-controller="PostCtrl">
 	<ion-view title="{{post.CommunityPost.title}}">
 		<ion-content class="">
-			<h1>{{post.CommunityPost.title}}</h1>
-			{{post}}
+			<img src="{{post.MediaImage.filename.length > 0 && imageDir+post.MediaImage.filename || imageDir+post.MediaVideo.preview }}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
+			<div class="threeleaf-separator">{{post.CommunityPost.title}}</div>
+			<div ng-bind-html="post.CommunityPost.body" class="padding"></div>
 		</ion-content>
 	</ion-view>
 </div>

@@ -7819,6 +7819,10 @@ $ios-transition-box-shadow-end: -200px 0px 200px rgba(0,0,0,0.15), -5px 0px 5px 
   font-family: 'Threeleaf';
   src: url('../fonts/ThreeLeafApp.ttf') format('truetype'); }
 
+.title-image {
+  margin-top: 7px;
+  height: 30px; }
+
 .threeleaf {
   font-family: 'Threeleaf';
   font-size: 1.5em;
@@ -7831,7 +7835,8 @@ $ios-transition-box-shadow-end: -200px 0px 200px rgba(0,0,0,0.15), -5px 0px 5px 
   text-align: center;
   background: #CE4A3B;
   line-height: 30px;
-  padding: 10px; }
+  padding: 10px;
+  margin-top: -5px; }
   .threeleaf-separator .threeleaf {
     vertical-align: -0.13em; }
 
@@ -7862,3 +7867,7 @@ $ios-transition-box-shadow-end: -200px 0px 200px rgba(0,0,0,0.15), -5px 0px 5px 
 
 .threeleaf-live:before {
   content: "oz"; }
+
+.series_list {
+  width: 50%;
+  float: left; }

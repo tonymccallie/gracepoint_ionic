@@ -29,6 +29,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	src: url('../fonts/ThreeLeafApp.ttf') format('truetype');
 }
 
+.title-image {
+	margin-top: 7px;
+	height: 30px;
+}
+
 .threeleaf {
 	font-family: 'Threeleaf';
 	font-size: 1.5em;
@@ -46,6 +51,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	background: $positive;
 	line-height: 30px;
 	padding: 10px;
+	margin-top: -5px;
 }
 
 .bar-positive .button.button-clear {
@@ -70,6 +76,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .threeleaf-groups:before {content: "oC";}
 .threeleaf-events:before {content: "oe";}
 .threeleaf-live:before {content: "oz";}
+
+.series_list {
+	width: 50%;
+	float: left;
+}
 
 //.fade-box {
 //	position: fixed;

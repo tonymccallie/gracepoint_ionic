@@ -1,10 +1,9 @@
 <ion-view title="Series">
-	<ion-content class="padding">
-		<h1>Series</h1>
-		{{series.length}}
-		{{series}}
-		<ul>
-			<li ng-repeat="item in series">{{item}}</li>
-		</ul>
+	<ion-content>
+		CURRENT
+		<div class="threeleaf-separator"><span class="threeleaf">oZ</span> SERMON SERIES</div>
+		<a class="series_list" href="" ng-repeat="item in series">
+			<img src="{{imageDir+item.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
+		</a>
 	</ion-content>
 </ion-view>

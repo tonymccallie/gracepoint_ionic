@@ -1,4 +1,5 @@
 myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate) {
+	$scope.imageDir = DOMAIN+'/img/thumb/';
 	$scope.showMenu = function () {
 		$ionicSideMenuDelegate.toggleLeft();
 	};
@@ -8,7 +9,6 @@ myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate) {
 });
 
 myApp.controller('HomeCtrl', function($scope, $ionicSlideBoxDelegate, $location, News, Community) {
-	$scope.imageDir = DOMAIN+'/img/thumb/';
 	
 	$scope.doRefresh = function() {
 		Community.update();

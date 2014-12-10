@@ -1,8 +1,10 @@
 <div ng-controller="ArticleCtrl">
 	<ion-view title="{{article.NewsArticle.title}}">
 		<ion-content class="">
-			<h1>{{article.NewsArticle.title}}</h1>
-			{{article}}
+			<img src="{{imageDir+article.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
+			<div class="threeleaf-separator">{{article.NewsArticle.title}}</div>
+			<div ng-bind-html-unsafe="post.NewsArticle.body" class="padding"></div>
+			{{post.NewsArticle.body}}
 		</ion-content>
 	</ion-view>
 </div>

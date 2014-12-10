@@ -32,6 +32,7 @@ myApp.factory('News', function ($http, $location, $ionicSlideBoxDelegate) {
 				$location.replace();
 				return null;
 			} else {
+				console.log(articles[config.articleId]);
 				return articles[config.articleId];
 			}
 		}
