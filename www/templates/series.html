@@ -1,5 +1,10 @@
 <ion-view title="Series">
-  <ion-content class="padding">
-    <h1>Series</h1>
-  </ion-content>
+	<ion-content class="padding">
+		<h1>Series</h1>
+		{{series.length}}
+		{{series}}
+		<ul>
+			<li ng-repeat="item in series">{{item}}</li>
+		</ul>
+	</ion-content>
 </ion-view>

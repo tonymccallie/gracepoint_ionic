@@ -1,16 +1,20 @@
-<ion-view title="Gracepoint">
+<ion-view title="Gracepoint" hide-back-button="true">
 	<ion-content class="">
 		<ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+		<div class="fade-box" ng-controller="NewsCtrl">
 		<ion-slide-box does-continue="true" auto-play="true" on-slide-changed="slideHasChanged($index)">
 			<ion-slide ng-repeat="article in articles">
 				<div class="box blue">
-					<img src="{{imageDir+article.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
+					<a href="#/tab/article/{{$index}}">
+						<img src="{{imageDir+article.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
+					</a>
 				</div>
 			</ion-slide>
 		</ion-slide-box>
+		</div>
 		<div class="threeleaf-separator"><span class="threeleaf">oy</span> COMMUNITY FEED</div>
-		<div class="padding">
-			<a href="" ng-repeat="post in posts">
+		<div class="padding" ng-controller="CommunityCtrl">
+			<a href="#/tab/post/{{$index}}" ng-repeat="post in posts">
 				{{post.CommunityPost.title}}
 				<img src="{{post.MediaImage.filename.length > 0 && imageDir+post.MediaImage.filename || imageDir+post.MediaVideo.preview }}/width:800/height:450/crop:true/zoom:auto/blur:true/greyscale:true" style="width: 100%;" />
 			</a>

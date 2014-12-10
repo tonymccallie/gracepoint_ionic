@@ -1,6 +1,4 @@
-var myCtrl = angular.module('starter.controllers', ['starter.services'])
-
-myCtrl.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate) {
+myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate) {
 	$scope.showMenu = function () {
 		$ionicSideMenuDelegate.toggleLeft();
 	};
@@ -9,44 +7,31 @@ myCtrl.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate) {
 	};
 });
 
-myCtrl.controller('HomeCtrl', function($scope, $stateParams, $http, $ionicSlideBoxDelegate) {
-	$scope.articles = [];
+myApp.controller('HomeCtrl', function($scope, $ionicSlideBoxDelegate, $location, News, Community) {
 	$scope.imageDir = DOMAIN+'/img/thumb/';
 	
-	$http.get(DOMAIN+'/ajax/plugin/news/news_articles/json/limit:4/category:2')
-	.success(function(response, status, headers, config) {
-		if(response.status === 'SUCCESS') {
-			angular.forEach(response.data, function(item) {
-				$scope.articles.push(item);
-			});
-			$ionicSlideBoxDelegate.update();
-		} else {
-			alert('there was a server error for NEWS');
-			console.log(response);
-		}
-	})
-	.error(function(response, status, headers, config) {
-		console.log(['error',data, status, headers, config]);
-	});
-	
-	
-	$scope.posts = [];
-	$http.get(DOMAIN+'/ajax/plugin/community/community_posts/json')
-	.success(function(response, status, headers, config) {
-		if(response.status === 'SUCCESS') {
-			angular.forEach(response.data, function(item) {
-				$scope.posts.push(item);
-			});
-		} else {
-			alert('there was a server error for COMMUNITY');
-			console.log(response);
-		}
-	})
-	.error(function(response, status, headers, config) {
-		console.log(['error',data, status, headers, config]);
-	});
+	$scope.doRefresh = function() {
+		Community.update();
+		$scope.$broadcast('scroll.refreshComplete');
+	}
 });
 
-myCtrl.controller('NewsCtrl', function($scope, $stateParams) {
-	//$scope.article = News.get($stateParams.articleId);
+myApp.controller('NewsCtrl', function($scope, $ionicSlideBoxDelegate, News) {
+	$scope.articles = News.articles;
+});
+
+myApp.controller('ArticleCtrl', function($scope, $stateParams, News) {
+	$scope.article = News.get({articleId: $stateParams.articleId});
+});
+
+myApp.controller('CommunityCtrl', function($scope, Community) {
+	$scope.posts = Community.posts;
+});
+
+myApp.controller('PostCtrl', function($scope, $stateParams, Community) {
+	$scope.post = Community.get({postId: $stateParams.postId});
+});
+
+myApp.controller('SeriesCtrl', function($scope, Series) {
+	$scope.series = Series.series;
 });

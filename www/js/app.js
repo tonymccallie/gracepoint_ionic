@@ -17,9 +17,9 @@ if(devtest) {
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var myApp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+var myApp = angular.module('starter', ['ionic','ngResource'])
 
-myApp.run(function ($ionicPlatform) {
+myApp.run(function ($ionicPlatform, Community) {
 	$ionicPlatform.ready(function () {
 		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 		// for form inputs)
@@ -34,7 +34,6 @@ myApp.run(function ($ionicPlatform) {
 });
 
 myApp.config(function ($stateProvider, $urlRouterProvider) {
-
 	// Ionic uses AngularUI Router which uses the concept of states
 	// Learn more here: https://github.com/angular-ui/ui-router
 	// Set up the various states which the app can be in.
@@ -65,7 +64,17 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 		views: {
 			'tab-home': {
 				templateUrl: 'templates/article.html',
-				controller: 'NewsCtrl'
+				controller: 'HomeCtrl'
+			}
+		}
+	});
+	
+	$stateProvider.state('tab.post', {
+		url: '/post/:postId',
+		views: {
+			'tab-home': {
+				templateUrl: 'templates/post.html',
+				controller: 'HomeCtrl'
 			}
 		}
 	});
@@ -74,7 +83,8 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 		url: '/series',
 		views: {
 			'tab-series': {
-				templateUrl: 'templates/series.html'
+				templateUrl: 'templates/series.html',
+				controller: 'SeriesCtrl'
 			}
 		}
 	});
