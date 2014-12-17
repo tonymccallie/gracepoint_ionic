@@ -2,7 +2,7 @@ myApp.factory('News', function ($http, $location, $ionicSlideBoxDelegate) {
 	var self = this;
 	var articles = [];
 	self.update = function() {
-		$http.get(DOMAIN+'/ajax/plugin/news/news_articles/json/limit:4/category:2')
+		var deferred = $http.get(DOMAIN+'/ajax/plugin/news/news_articles/json/limit:4/category:2')
 			.success(function(response, status, headers, config) {
 				if(response.status === 'SUCCESS') {
 					angular.forEach(response.data, function(item) {
@@ -17,6 +17,7 @@ myApp.factory('News', function ($http, $location, $ionicSlideBoxDelegate) {
 			.error(function(response, status, headers, config) {
 				console.log(['error',data, status, headers, config]);
 			});
+		return deferred;
 	}
 	
 	if(articles.length === 0) {
@@ -26,13 +27,12 @@ myApp.factory('News', function ($http, $location, $ionicSlideBoxDelegate) {
 	return {
 		articles: articles,
 		update: self.update,
-		get: function(config, article) {
+		get: function(config) {
 			if(articles.length === 0) {
 				$location.path('/tab/home');
 				$location.replace();
 				return null;
 			} else {
-				console.log(articles[config.articleId]);
 				return articles[config.articleId];
 			}
 		}
@@ -43,7 +43,7 @@ myApp.factory('Community', function ($http, $location) {
 	var self = this;
 	var posts = [];
 	self.update = function() {
-		$http.get(DOMAIN+'/ajax/plugin/community/community_posts/json')
+		var deferred = $http.get(DOMAIN+'/ajax/plugin/community/community_posts/json')
 			.success(function(response, status, headers, config) {
 				if(response.status === 'SUCCESS') {
 					angular.forEach(response.data, function(item) {
@@ -57,6 +57,7 @@ myApp.factory('Community', function ($http, $location) {
 			.error(function(response, status, headers, config) {
 				console.log(['error',data, status, headers, config]);
 			});
+		return deferred;
 	}
 	
 	if(posts.length === 0) {
@@ -66,7 +67,7 @@ myApp.factory('Community', function ($http, $location) {
 	return {
 		posts: posts,
 		update: self.update,
-		get: function(config, post) {
+		get: function(config) {
 			if(posts.length === 0) {
 				$location.path('/tab/home');
 				$location.replace();
@@ -78,11 +79,22 @@ myApp.factory('Community', function ($http, $location) {
 	};
 });
 
-myApp.factory('Series', function($http, $location) {
+myApp.service('Series', function($http, $location) {
 	var self = this;
 	var series = [];
+	var latestMessage = {
+		message: null
+	};
+	var sermons = [];
+	var sermon = {
+		MessageMessage: {
+			id: null
+		}
+	};
+	
 	self.update = function() {
-		$http.get(DOMAIN+'/ajax/plugin/message/message_series/json/category:1')
+		series = [];
+		var deferred = $http.get(DOMAIN+'/ajax/plugin/message/message_series/json/category:1')
 			.success(function(response, status, headers, config) {
 				if(response.status === 'SUCCESS') {
 					angular.forEach(response.data, function(item) {
@@ -96,24 +108,178 @@ myApp.factory('Series', function($http, $location) {
 			.error(function(response, status, headers, config) {
 				console.log(['error',data, status, headers, config]);
 			});
+		return deferred;
+	}
+	
+	self.series = function() {
+		return series;
+	}
+	
+	self.getSermons = function(seriesId) {
+		sermons = [];
+		var deferred = $http.get(DOMAIN+'/ajax/plugin/message/message_messages/json/series:'+seriesId)
+			.success(function(response, status, headers, config) {
+				if(response.status === 'SUCCESS') {
+					angular.forEach(response.data, function(item) {
+						sermons.push(item);
+					});
+				} else {
+					alert('there was a server error for SERIES');
+					console.log(response);
+				}
+			})
+			.error(function(response, status, headers, config) {
+				console.log(['error',data, status, headers, config]);
+			});
+		return deferred;
+	}
+	
+	self.sermons = function(seriesId) {
+		self.getSermons(seriesId);
+		return sermons;
+	}
+	
+	self.getSermon = function(sermonId) {
+		angular.forEach(sermons, function(item) {
+			if(item.MessageMessage.id == sermonId) {
+				sermon = item;
+			}
+		});
+		
+		if(sermon.MessageMessage.id !== sermonId) {
+			sermon = latestMessage;
+		}
+		console.log(sermon);
+	}
+	
+	self.sermon = function(sermonId) {
+		console.log(sermonId);
+		self.getSermon(sermonId);
+		return sermon;
+	}
+	
+	self.getLatest = function() {
+		var deferred = $http.get(DOMAIN+'/ajax/plugin/message/message_messages/json/limit:1/category:1')
+			.success(function(response, status, headers, config) {
+				if(response.status === 'SUCCESS') {
+					latestMessage.message = response.data[0];
+				} else {
+					alert('there was a server error for SERIES');
+					console.log(response);
+				}
+			})
+			.error(function(response, status, headers, config) {
+				console.log(['error',data, status, headers, config]);
+			});
+		return deferred;
+	}
+	
+	self.latestMessage = function() {
+		return latestMessage;
+	}
+	
+	if(series.length === 0) {
+		$location.path('/tab/series');
+		$location.replace();
+		self.update();
+	}
+	
+	if(latestMessage.message === null) {
+		self.getLatest();
+	}
+});
+
+myApp.factory('SeriesX', function($http, $location) {
+	var self = this;
+	var series = [];
+	var latestMessage = [];
+	
+	self.update = function() {
+		series = [];
+		var deferred = $http.get(DOMAIN+'/ajax/plugin/message/message_series/json/category:1')
+			.success(function(response, status, headers, config) {
+				if(response.status === 'SUCCESS') {
+					angular.forEach(response.data, function(item) {
+						series.push(item);
+					});
+				} else {
+					alert('there was a server error for SERIES');
+					console.log(response);
+				}
+			})
+			.error(function(response, status, headers, config) {
+				console.log(['error',data, status, headers, config]);
+			});
+		return deferred;
+	}
+	
+	self.getLatest = function() {
+		latestMessage = [];
+		var deferred = $http.get(DOMAIN+'/ajax/plugin/message/message_messages/json/limit:1/category:1')
+			.success(function(response, status, headers, config) {
+				if(response.status === 'SUCCESS') {
+					latestMessage = response.data;
+					console.log(latestMessage);
+				} else {
+					alert('there was a server error for SERIES');
+					console.log(response);
+				}
+			})
+			.error(function(response, status, headers, config) {
+				console.log(['error',data, status, headers, config]);
+			});
+		return deferred;
 	}
 	
 	if(series.length === 0) {
 		self.update();
 	}
 	
+	if(latestMessage.length === 0) {
+		self.getLatest();
+	}
+	
 	return {
+		latestMessage: latestMessage,
 		series: series,
-		update: self.update
+		update: self.update,
+		get: function(config) {
+			if(typeof sermons[config.seriesId] === 'undefined') {
+				sermons[config.seriesId] = {
+					name: 'TEst'	
+				};
+			}
+			return sermons[config.seriesId];
+		}
 	};
 });
 
-myApp.factory('Messages', function ($http, $location) {
+myApp.factory('Sermons', function ($http, $location) {
 	var self = this;
+	var latest = null;
+	var sermons = [];
+	self.latest = function() {
+		$http.get(DOMAIN+'/ajax/plugin/message/message_series/json/category:1')
+			.success(function(response, status, headers, config) {
+				if(response.status === 'SUCCESS') {
+					angular.forEach(response.data, function(item) {
+						sermons.push(item);
+					});
+				} else {
+					alert('there was a server error for SERIES');
+					console.log(response);
+				}
+			})
+			.error(function(response, status, headers, config) {
+				console.log(['error',data, status, headers, config]);
+			});
+	}
 	
 	return {
-		latest: function() {
-			return $http.get(DOMAIN+'/ajax/plugin/community/community_posts/json');
+		latest: latest,
+		get: function(config) {
+			console.log(config);
+			return sermons;
 		}
 	};
 });

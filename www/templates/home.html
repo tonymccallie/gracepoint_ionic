@@ -1,23 +1,25 @@
 <ion-view title='<img src="img/logo.png" class="title-image" />' hide-back-button="true">
 	<ion-content class="">
-		<ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
-		<div class="fade-box" ng-controller="NewsCtrl">
+		<ion-refresher pulling-text="Pull to refresh..." on-refresh="doHomeRefresh()"></ion-refresher>
+		<div class="fade-box">
 		<ion-slide-box does-continue="true" auto-play="true" on-slide-changed="slideHasChanged($index)">
 			<ion-slide ng-repeat="article in articles">
 				<div class="box blue">
 					<a href="#/tab/article/{{$index}}">
-						<img src="{{imageDir+article.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
+						<img ng-if="article.MediaImage.filename.length" src="{{imageDir+article.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
 					</a>
 				</div>
 			</ion-slide>
 		</ion-slide-box>
+		<div ng-if="articles.length == 0">LOADING</div>
 		</div>
 		<div class="threeleaf-separator"><span class="threeleaf">oy</span> COMMUNITY FEED</div>
-		<div class="padding" ng-controller="CommunityCtrl">
+		<div class="padding">
 			<a href="#/tab/post/{{$index}}" ng-repeat="post in posts">
 				{{post.CommunityPost.title}}
-				<img src="{{post.MediaImage.filename.length > 0 && imageDir+post.MediaImage.filename || imageDir+post.MediaVideo.preview }}/width:800/height:450/crop:true/zoom:auto/blur:true/greyscale:true" style="width: 100%;" />
+				<img ng-if="post.MediaImage.filename.length > 0 || post.MediaVideo.preview.length > 0" src="{{post.MediaImage.filename.length > 0 && imageDir+post.MediaImage.filename || imageDir+post.MediaVideo.preview }}/width:800/height:450/crop:true/zoom:auto/blur:true/greyscale:true" style="width: 100%;" />
 			</a>
+			<div ng-if="posts.length == 0">LOADING..</div>
 		</div>
 	</ion-content>
 </ion-view>

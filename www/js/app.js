@@ -53,8 +53,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 		url: '/home',
 		views: {
 			'tab-home': {
-				templateUrl: 'templates/home.html',
-				controller: 'HomeCtrl'
+				templateUrl: 'templates/home.html'
 			}
 		}
 	});
@@ -63,8 +62,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 		url: '/article/:articleId',
 		views: {
 			'tab-home': {
-				templateUrl: 'templates/article.html',
-				controller: 'HomeCtrl'
+				templateUrl: 'templates/article.html'
 			}
 		}
 	});
@@ -73,8 +71,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 		url: '/post/:postId',
 		views: {
 			'tab-home': {
-				templateUrl: 'templates/post.html',
-				controller: 'HomeCtrl'
+				templateUrl: 'templates/post.html'
 			}
 		}
 	});
@@ -92,8 +89,9 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 	$stateProvider.state('tab.sermons', {
 		url: '/sermons/:seriesId',
 		views: {
-			'tab-sermons': {
-				templateUrl: 'templates/sermons.html'
+			'tab-series': {
+				templateUrl: 'templates/sermons.html',
+				controller: 'SeriesCtrl'
 			}
 		}
 	});
@@ -102,7 +100,8 @@ myApp.config(function ($stateProvider, $urlRouterProvider) {
 		url: '/sermon/:sermonId',
 		views: {
 			'tab-series': {
-				templateUrl: 'templates/sermon.html'
+				templateUrl: 'templates/sermon.html',
+				controller: 'SeriesCtrl'
 			}
 		}
 	});
