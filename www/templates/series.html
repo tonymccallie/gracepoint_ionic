@@ -5,9 +5,11 @@
 			<img src="{{imageDir+latestMessage.message.MediaVideo.preview}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
 		</a>
 		<div class="threeleaf-separator"><span class="threeleaf">oZ</span> SERMON SERIES</div>
-		<a class="series_list" href="#/tab/sermons/{{$index}}" ng-repeat="item in series">
-			<img src="{{imageDir+item.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
-		</a>
-		<div ng-if="series.length == 0">LOADING..</div>
+		<div class="series_listing">
+			<a class="series_list" href="#/tab/sermons/{{$index}}" ng-repeat="item in series">
+				<img src="{{imageDir+item.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
+			</a>
+			<div ng-if="series.length == 0">LOADING..</div>
+		</div>
 	</ion-content>
 </ion-view>

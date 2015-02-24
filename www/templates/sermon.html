@@ -1,6 +1,14 @@
 <ion-view title="{{selectedSermon.MessageMessage.title}}">
 	<ion-content has-header="true">
-		<img ng-if="selectedSermon.MessageSeries.MediaImage.filename.length > 0" src="{{imageDir+selectedSermon.MessageSeries.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
-		<div class="threeleaf-separator"><span class="threeleaf">oZ</span>SERMON SERIES</div>{{selectedSermon}}
+		<div class="scaleVid ratio16x9">
+			<img ng-if="selectedSermon.MediaVideo.filename === null" src="{{imageDir+selectedSermon.MessageSeries.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
+			<video ng-if="selectedSermon.MediaVideo.filename.length > 0" type="video/mp4" controls="controls" style="width: 100%" src="{{DOMAIN+'/play/vid/'+selectedSermon.MediaVideo.id+'/play.mp4'}}" poster="{{imageDir+selectedSermon.MediaVideo.preview}}/width:800/height:450/crop:true/zoom:auto"></video>
+		</div>
+		<div class="threeleaf-separator"><span class="threeleaf">oZ</span> SERMON SERIES</div>
+		<div class="padding">
+			{{selectedSermon.MessageMessage.descr}}
+			<button class="button button-block button-positive" ng-click="play(selectedSermon)"><span class="threeleaf">L</span>LISTEN</a>
+			<button class="button button-block button-positive"><span class="threeleaf">V</span>WATCH</a>
+		</div>
 	</ion-content>
 </ion-view>

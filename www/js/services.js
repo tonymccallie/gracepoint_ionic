@@ -1,4 +1,17 @@
-myApp.factory('News', function ($http, $location, $ionicSlideBoxDelegate) {
+myApp.service('Media', function() {
+	var self = this;
+	var audioPlayer = {
+		MessageMessage: {
+			filename: null
+		}
+	};
+	
+	self.audioPlayer = function() {
+		return audioPlayer;
+	}
+});
+
+myApp.service('News', function ($http, $location, $ionicSlideBoxDelegate) {
 	var self = this;
 	var articles = [];
 	self.update = function() {
@@ -23,23 +36,23 @@ myApp.factory('News', function ($http, $location, $ionicSlideBoxDelegate) {
 	if(articles.length === 0) {
 		self.update();
 	}
-
-	return {
-		articles: articles,
-		update: self.update,
-		get: function(config) {
-			if(articles.length === 0) {
-				$location.path('/tab/home');
-				$location.replace();
-				return null;
-			} else {
-				return articles[config.articleId];
-			}
+	
+	self.articles = function() {
+		return articles;
+	}
+	
+	self.get = function(config) {
+		if(articles.length === 0) {
+			$location.path('/tab/home');
+			$location.replace();
+			return null;
+		} else {
+			return articles[config.articleId];
 		}
-	};
+	}
 });
 
-myApp.factory('Community', function ($http, $location) {
+myApp.service('Community', function ($http, $location) {
 	var self = this;
 	var posts = [];
 	self.update = function() {
@@ -64,19 +77,19 @@ myApp.factory('Community', function ($http, $location) {
 		self.update();
 	}
 	
-	return {
-		posts: posts,
-		update: self.update,
-		get: function(config) {
-			if(posts.length === 0) {
-				$location.path('/tab/home');
-				$location.replace();
-				return null;
-			} else {
-				return posts[config.postId];
-			}
+	self.posts = function() {
+		return posts;
+	}
+	
+	self.get = function(config) {
+		if(posts.length === 0) {
+			$location.path('/tab/home');
+			$location.replace();
+			return null;
+		} else {
+			return posts[config.postId];
 		}
-	};
+	}
 });
 
 myApp.service('Series', function($http, $location) {
@@ -149,11 +162,9 @@ myApp.service('Series', function($http, $location) {
 		if(sermon.MessageMessage.id !== sermonId) {
 			sermon = latestMessage;
 		}
-		console.log(sermon);
 	}
 	
 	self.sermon = function(sermonId) {
-		console.log(sermonId);
 		self.getSermon(sermonId);
 		return sermon;
 	}

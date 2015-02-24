@@ -1,7 +1,12 @@
-myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Community, Series) {
+myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Community, Media) {
+	console.log('NavCtrl');
+	$scope.DOMAIN = DOMAIN;
 	$scope.imageDir = DOMAIN+'/img/thumb/';
-	$scope.articles = News.articles;
-	$scope.posts = Community.posts;
+	$scope.articles = News.articles();
+	$scope.posts = Community.posts();
+	$scope.audioPlayer = Media.audioPlayer();
+	
+	$scope.test = 'test';
 	
 	$scope.showMenu = function () {
 		$ionicSideMenuDelegate.toggleLeft();
@@ -19,6 +24,11 @@ myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Comm
 		Series.update().then(function(data) {
 			$scope.$broadcast('scroll.refreshComplete');
 		});
+	}
+	
+	$scope.play = function(audio) {
+		$scope.audioPlayer = audio;
+		$scope.showRightMenu();
 	}
 });
 

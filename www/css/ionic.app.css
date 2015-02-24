@@ -7819,6 +7819,26 @@ $ios-transition-box-shadow-end: -200px 0px 200px rgba(0,0,0,0.15), -5px 0px 5px 
   font-family: 'Threeleaf';
   src: url('../fonts/ThreeLeafApp.ttf') format('truetype'); }
 
+.scaleVid {
+  position: relative;
+  height: 0; }
+
+.ratio16x9 {
+  padding-bottom: 56.25%; }
+
+.ratio4x3 {
+  padding-bottom: 75%; }
+
+.audioPlayerRatio {
+  padding-bottom: 15%; }
+
+.scaleVid div, .scaleVid object, .scaleVid embed, .scaleVid iframe, .scaleVid video {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
 .title-image {
   margin-top: 7px;
   height: 30px; }
@@ -7868,6 +7888,10 @@ $ios-transition-box-shadow-end: -200px 0px 200px rgba(0,0,0,0.15), -5px 0px 5px 
 .threeleaf-live:before {
   content: "oz"; }
 
+.series_listing {
+  padding-top: 5px; }
+
 .series_list {
   width: 50%;
-  float: left; }
+  float: left;
+  margin-top: -5px; }
