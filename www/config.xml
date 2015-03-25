@@ -12,4 +12,6 @@
 	<feature name="StatusBar">
 		<param name="ios-package" value="CDVStatusBar" onload="true" />
 	</feature>
+	<gap:platform name="ios" />
+	<gap:platform name="android" />
 </widget>
