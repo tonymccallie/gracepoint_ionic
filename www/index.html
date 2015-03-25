@@ -39,6 +39,7 @@
 								<button ng-click="pause()">PAUSE</button>
 							</ion-item>
 							<ion-item>{{audio.MessageMessage.title}}</ion-item>
+							<ion-item>{{DOMAIN+'/play/mp3/'+audio.MediaAudio.id+'/play.mp3'}}</ion-item>
 							<audio id="message_audio_player" hiddenx="hiddenx" controls="controls" src="{{DOMAIN+'/play/mp3/'+audio.MediaAudio.id+'/play.mp3'}}"></audio>
 						</div>
 						<ion-item class="item-divider bar bar-positive"><span class="threeleaf">b</span>Menu</ion-item>
