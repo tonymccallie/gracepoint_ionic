@@ -10,5 +10,6 @@
 			<a ng-if="selectedSermon.MediaAudio.filename" class="button button-block button-positive" ng-click="setAudio(selectedSermon)"><span class="threeleaf">L</span>LISTEN</a>
 			<a ng-if="selectedSermon.MediaVideo.filename" class="button button-block button-positive"><span class="threeleaf">V</span>WATCH</a>
 		</div>
+		{{DOMAIN+'/play/mp3/'+audio.MediaAudio.id+'/play.mp3'}}
 	</ion-content>
 </ion-view>

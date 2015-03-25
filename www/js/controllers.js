@@ -27,18 +27,15 @@ myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Comm
 	}
 	
 	$scope.setAudio = function(audio) {
-		console.log(audio);
 		$scope.audio = audio;
 		$scope.showRightMenu();
 		setTimeout(function(){
 			$scope.audioPlayer = document.getElementById('message_audio_player');
-			window.open(encodeURI(document.getElementById('message_audio_player').src),'_system','location=no');
 			$scope.play();
 		},0);
 	}
 	
 	$scope.play = function() {
-		console.log($scope.audioPlayer);
 		$scope.audioPlayer.play();
 	}
 	
