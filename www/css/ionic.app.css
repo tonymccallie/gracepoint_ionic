@@ -7819,6 +7819,49 @@ $ios-transition-box-shadow-end: -200px 0px 200px rgba(0,0,0,0.15), -5px 0px 5px 
   font-family: 'Threeleaf';
   src: url('../fonts/ThreeLeafApp.ttf') format('truetype'); }
 
+@font-face {
+  font-family: 'LatoRegular';
+  src: url('../fonts/Lato-Regular.ttf') format('truetype'); }
+
+@font-face {
+  font-family: 'LatoItalic';
+  src: url('../fonts/Lato-Italic.ttf') format('truetype'); }
+
+@font-face {
+  font-family: 'LatoBlack';
+  src: url('../fonts/Lato-Black.ttf') format('truetype'); }
+
+@font-face {
+  font-family: 'LatoBlackItalic';
+  src: url('../fonts/Lato-BlackItalic.ttf') format('truetype'); }
+
+@font-face {
+  font-family: 'LatoBold';
+  src: url('../fonts/Lato-Bold.ttf') format('truetype'); }
+
+@font-face {
+  font-family: 'LatoBoldItalic';
+  src: url('../fonts/Lato-BoldItalic.ttf') format('truetype'); }
+
+@font-face {
+  font-family: 'LatoHairline';
+  src: url('../fonts/Lato-Hairline.ttf') format('truetype'); }
+
+@font-face {
+  font-family: 'LatoHairlineItalic';
+  src: url('../fonts/Lato-HairlineItalic.ttf') format('truetype'); }
+
+@font-face {
+  font-family: 'LatoLight';
+  src: url('../fonts/Lato-Light.ttf') format('truetype'); }
+
+@font-face {
+  font-family: 'LatoLightItalic';
+  src: url('../fonts/Lato-LightItalic.ttf') format('truetype'); }
+
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: "LatoLight"; }
+
 .scaleVid {
   position: relative;
   height: 0; }
@@ -7895,3 +7938,17 @@ $ios-transition-box-shadow-end: -200px 0px 200px rgba(0,0,0,0.15), -5px 0px 5px 
   width: 50%;
   float: left;
   margin-top: -5px; }
+
+.community_post {
+  display: block;
+  margin-bottom: 15px;
+  position: relative; }
+  .community_post h4 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 5px 2%;
+    width: 100%;
+    background: #CE4A3B;
+    color: #fff; }

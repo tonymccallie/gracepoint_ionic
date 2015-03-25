@@ -32,12 +32,14 @@
 			<ion-side-menu side="right">
 				<ion-content>
 					<ion-list>
-						<div ng-if="audioPlayer.MessageMessage.filename !== null">
+						<div ng-if="audio.MessageMessage.filename !== null">
 							<ion-item class="item-divider bar bar-positive"><span class="threeleaf">l</span>Now Playing</ion-item>
 							<ion-item>
-								BUTTONS
+								<button ng-click="play()">PLAY</button>
+								<button ng-click="pause()">PAUSE</button>
 							</ion-item>
-							<ion-item>{{audioPlayer.MessageMessage.title}}</ion-item>
+							<ion-item>{{audio.MessageMessage.title}}</ion-item>
+							<audio id="message_audio_player" hiddenx="hiddenx" controls="controls" src="{{DOMAIN+'/play/mp3/'+audio.MediaAudio.id+'/play.mp3'}}"></audio>
 						</div>
 						<ion-item class="item-divider bar bar-positive"><span class="threeleaf">b</span>Menu</ion-item>
 						<ion-item nav-clear menu-close href="#/tab/about">About</ion-item>
@@ -48,7 +50,7 @@
 						<ion-item nav-clear menu-close href="#/tab/developer">Developer</ion-item>
 						<ion-item nav-clear menu-close href="#/tab/jesus">About Jesus</ion-item>
 					</ion-list>
-					{{audioPlayer}}
+					{{audio}}
 				</ion-content>
 			</ion-side-menu>
 		</ion-side-menus>

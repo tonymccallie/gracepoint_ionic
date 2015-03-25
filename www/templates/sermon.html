@@ -7,8 +7,8 @@
 		<div class="threeleaf-separator"><span class="threeleaf">oZ</span> SERMON SERIES</div>
 		<div class="padding">
 			{{selectedSermon.MessageMessage.descr}}
-			<button class="button button-block button-positive" ng-click="play(selectedSermon)"><span class="threeleaf">L</span>LISTEN</a>
-			<button class="button button-block button-positive"><span class="threeleaf">V</span>WATCH</a>
+			<a ng-if="selectedSermon.MediaAudio.filename" class="button button-block button-positive" ng-click="setAudio(selectedSermon)"><span class="threeleaf">L</span>LISTEN</a>
+			<a ng-if="selectedSermon.MediaVideo.filename" class="button button-block button-positive"><span class="threeleaf">V</span>WATCH</a>
 		</div>
 	</ion-content>
 </ion-view>

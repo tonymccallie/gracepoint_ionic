@@ -1,13 +1,13 @@
 myApp.service('Media', function() {
 	var self = this;
-	var audioPlayer = {
+	var audio = {
 		MessageMessage: {
 			filename: null
 		}
 	};
 	
-	self.audioPlayer = function() {
-		return audioPlayer;
+	self.audio = function() {
+		return audio;
 	}
 });
 

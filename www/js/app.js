@@ -10,6 +10,7 @@ if(devtest) {
 	DOMAIN = 'http://office.threeleaf.net:8080/greyback_shiny';
 	isMobile = false;
 }
+
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules

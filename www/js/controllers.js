@@ -1,10 +1,10 @@
 myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Community, Media) {
-	console.log('NavCtrl');
 	$scope.DOMAIN = DOMAIN;
 	$scope.imageDir = DOMAIN+'/img/thumb/';
 	$scope.articles = News.articles();
 	$scope.posts = Community.posts();
-	$scope.audioPlayer = Media.audioPlayer();
+	$scope.audio = Media.audio();
+	$scope.audioPlayer = null;
 	
 	$scope.test = 'test';
 	
@@ -26,9 +26,23 @@ myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Comm
 		});
 	}
 	
-	$scope.play = function(audio) {
-		$scope.audioPlayer = audio;
+	$scope.setAudio = function(audio) {
+		console.log(audio);
+		$scope.audio = audio;
 		$scope.showRightMenu();
+		setTimeout(function(){
+			$scope.audioPlayer = document.getElementById('message_audio_player');
+			$scope.play();
+		},0);
+	}
+	
+	$scope.play = function() {
+		console.log($scope.audioPlayer);
+		$scope.audioPlayer.play();
+	}
+	
+	$scope.pause = function() {
+		$scope.audioPlayer.pause();
 	}
 });
 
