@@ -41,6 +41,7 @@ myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Comm
 	}
 	
 	$scope.pause = function() {
+		$scope.audioPlayer.play();
 		$scope.audioPlayer.pause();
 	}
 });
