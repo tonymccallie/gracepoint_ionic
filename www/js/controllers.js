@@ -31,6 +31,7 @@ myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Comm
 		$scope.showRightMenu();
 		setTimeout(function(){
 			$scope.audioPlayer = document.getElementById('message_audio_player');
+			$scope.audioPlayer.src = DOMAIN+'/play/mp3/'+audio.MediaAudio.id+'/play.mp3';
 			$scope.play();
 		},0);
 	}
