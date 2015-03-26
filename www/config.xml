@@ -14,4 +14,8 @@
 	</feature>
 	<gap:platform name="ios" />
 	<gap:platform name="android" />
+	<feature name="BackgroundAudio">
+		<param name="ios-package" value="BackgroundAudio" />
+		<param name="onload" value="true" />
+	</feature>
 </widget>
