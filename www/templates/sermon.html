@@ -11,5 +11,8 @@
 			<a ng-if="selectedSermon.MediaVideo.filename" class="button button-block button-positive"><span class="threeleaf">V</span>WATCH</a>
 		</div>
 		{{DOMAIN+'/play/vid/'+selectedSermon.MediaVideo.id+'/play.mp4'}}
+		<div class="scaleVid ratio16x9">
+			<video type="video/mp4" controls="controls" style="width: 100%" src="{{DOMAIN+'/play/vid/'+selectedSermon.MediaVideo.id+'/play.mp4'}}" poster="{{imageDir+selectedSermon.MediaVideo.preview}}/width:800/height:450/crop:true/zoom:auto"></video>
+		</div>
 	</ion-content>
 </ion-view>
