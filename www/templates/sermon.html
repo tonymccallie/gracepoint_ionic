@@ -10,9 +10,6 @@
 			<a ng-if="selectedSermon.MediaAudio.filename" class="button button-block button-positive" ng-click="setAudio(selectedSermon)"><span class="threeleaf">L</span>LISTEN</a>
 			<a ng-if="selectedSermon.MediaVideo.filename" class="button button-block button-positive"><span class="threeleaf">V</span>WATCH</a>
 		</div>
-		{{DOMAIN+'/play/vid/'+selectedSermon.MediaVideo.id+'/play.mp4'}}
-		<div class="scaleVid ratio16x9">
-			<video type="video/mp4" controls="controls" style="width: 100%" src="{{DOMAIN+'/play/vid/'+selectedSermon.MediaVideo.id+'/play.mp4'}}" poster="{{imageDir+selectedSermon.MediaVideo.preview}}/width:800/height:450/crop:true/zoom:auto"></video>
-		</div>
+		<a href="{{DOMAIN+'/play/vid/'+selectedSermon.MediaVideo.id+'/play.mp4'}}">TEST</a>
 	</ion-content>
 </ion-view>
