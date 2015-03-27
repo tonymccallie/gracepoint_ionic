@@ -3,16 +3,13 @@
 		<div class="scaleVid ratio16x9">
 			<img ng-if="selectedSermon.MediaVideo.filename === null" src="{{imageDir+selectedSermon.MessageSeries.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
 			<img ng-click="" ng-if="selectedSermon.MediaVideo.filename !== null" src="{{imageDir+selectedSermon.MediaVideo.preview}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
-			<video id="sermon_video_player" ng-if="selectedSermon.MediaVideo.filename.length > 0" type="video/mp4" controls="controls" style="width: 100%" src="{{DOMAIN+'/play/vid/'+selectedSermon.MediaVideo.id+'/play.mp4'}}" poster="{{imageDir+selectedSermon.MediaVideo.preview}}/width:800/height:450/crop:true/zoom:auto"></video>
+			<video id="sermon_video_player" ng-if="selectedSermon.MediaVideo.filename.length > 0" controls="controls" src="{{DOMAIN+'/play/vid/'+selectedSermon.MediaVideo.id+'/play.mp4'}}" poster="{{imageDir+selectedSermon.MediaVideo.preview}}/width:800/height:450/crop:true/zoom:auto"></video>
 		</div>
 		<div class="threeleaf-separator"><span class="threeleaf">oZ</span> SERMON SERIES</div>
 		<div class="padding">
 			{{selectedSermon.MessageMessage.descr}}
 			<a ng-if="selectedSermon.MediaAudio.filename" class="button button-block button-positive" ng-click="setAudio(selectedSermon)"><span class="threeleaf">L</span>LISTEN</a>
 			<a ng-if="selectedSermon.MediaVideo.filename" class="button button-block button-positive"><span class="threeleaf">V</span>WATCH</a>
-		</div>
-		<div class="scaleVid ratio16x9">
-			<video src="http://wpc.8919.edgecastcdn.net/808919/greyback/gracepointcoppell/sermon-3-22-15_high.mp4" controls="controls" poster="{{imageDir+selectedSermon.MediaVideo.preview}}/width:800/height:450/crop:true/zoom:auto"></video>
 		</div>
 	</ion-content>
 </ion-view>
