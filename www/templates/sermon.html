@@ -1,9 +1,7 @@
 <ion-view title="{{selectedSermon.MessageMessage.title}}">
 	<ion-content has-header="true">
 		<div class="scaleVid ratio16x9">
-			<img ng-if="selectedSermon.MediaVideo.filename === null" src="{{imageDir+selectedSermon.MessageSeries.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
-			<img ng-click="" ng-if="selectedSermon.MediaVideo.filename !== null" src="{{imageDir+selectedSermon.MediaVideo.preview}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
-			<video id="sermon_video_player" ng-if="selectedSermon.MediaVideo.filename.length > 0" controls="controls" src="{{DOMAIN+'/play/vid/'+selectedSermon.MediaVideo.id+'/play.mp4'}}" poster="{{imageDir+selectedSermon.MediaVideo.preview}}/width:800/height:450/crop:true/zoom:auto"></video>
+			<video id="sermon_video_player" controls="controls" src="{{DOMAIN+'/play/vid/'+selectedSermon.MediaVideo.id+'/play.mp4'}}" poster="{{imageDir+selectedSermon.MediaVideo.preview}}/width:800/height:450/crop:true/zoom:auto"></video>
 		</div>
 		<div class="threeleaf-separator"><span class="threeleaf">oZ</span> SERMON SERIES</div>
 		<div class="padding">
