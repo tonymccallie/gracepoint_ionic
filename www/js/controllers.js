@@ -69,4 +69,7 @@ myApp.controller('SeriesCtrl', function($scope, $stateParams, $location, Series)
 	if(typeof $stateParams.sermonId !== 'undefined') {
 		$scope.selectedSermon = Series.sermon($stateParams.sermonId);
 	}
+	if($scope.selectedSermon !== null) {
+		console.log('test');
+	}
 });
