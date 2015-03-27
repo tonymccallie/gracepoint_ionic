@@ -12,7 +12,7 @@
 			<a ng-if="selectedSermon.MediaVideo.filename" class="button button-block button-positive"><span class="threeleaf">V</span>WATCH</a>
 		</div>
 		<div class="scaleVid ratio16x9">
-			<video src="http://wpc.8919.edgecastcdn.net/808919/greyback/gracepointcoppell/sermon-3-22-15_high.mp4" controls="controls"></video>
+			<video src="http://wpc.8919.edgecastcdn.net/808919/greyback/gracepointcoppell/sermon-3-22-15_high.mp4" controls="controls" poster="{{imageDir+selectedSermon.MediaVideo.preview}}/width:800/height:450/crop:true/zoom:auto"></video>
 		</div>
 	</ion-content>
 </ion-view>
