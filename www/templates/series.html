@@ -2,12 +2,12 @@
 	<ion-content>
 		<ion-refresher pulling-text="Pull to refresh..." on-refresh="doSeriesRefresh()"></ion-refresher>
 		<a ng-if="latestMessage.message.MessageSeries.MediaImage.filename.length > 0" href="#/tab/sermon/13013">
-			<img src="{{imageDir+latestMessage.message.MediaVideo.preview}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
+			<img ng-src="{{imageDir+latestMessage.message.MediaVideo.preview}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
 		</a>
 		<div class="threeleaf-separator"><span class="threeleaf">oZ</span> SERMON SERIES</div>
 		<div class="series_listing">
 			<a class="series_list" href="#/tab/sermons/{{$index}}" ng-repeat="item in series">
-				<img src="{{imageDir+item.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
+				<img ng-src="{{imageDir+item.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
 			</a>
 			<div ng-if="series.length == 0">LOADING..</div>
 		</div>
