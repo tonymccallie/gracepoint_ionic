@@ -72,6 +72,6 @@ myApp.controller('SeriesCtrl', function($scope, $stateParams, $location, Series)
 	}
 	if($scope.selectedSermon !== null) {
 		$scope.videoPlayer = document.getElementById('sermon_video_player');
-		$scope.videoPlayer.src = DOMAIN+'/play/vid/'+$scope.selectedSermon.MediaVideo.id+'/play.mp4;
+		$scope.videoPlayer.src = DOMAIN+'/play/vid/'+$scope.selectedSermon.MediaVideo.id+'/play.mp4';
 	}
 });
