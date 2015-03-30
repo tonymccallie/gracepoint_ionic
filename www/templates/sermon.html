@@ -6,6 +6,7 @@
 		<div class="threeleaf-separator"><span class="threeleaf">oZ</span> SERMON SERIES</div>
 		<div class="padding">
 			{{selectedSermon.MessageMessage.descr}}
+			<video width="100%" id="sermon_video_player" controls="controls" src="{{DOMAIN+'/play/vid/'+selectedSermon.MediaVideo.id+'/play.mp4'}}" poster="{{imageDir+selectedSermon.MediaVideo.preview}}/width:800/height:450/crop:true/zoom:auto"></video>
 			<a ng-if="selectedSermon.MediaAudio.filename" class="button button-block button-positive" ng-click="setAudio(selectedSermon)"><span class="threeleaf">L</span>LISTEN</a>
 			<a ng-if="selectedSermon.MediaVideo.filename" class="button button-block button-positive"><span class="threeleaf">V</span>WATCH</a>
 		</div>
