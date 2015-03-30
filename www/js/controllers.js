@@ -5,6 +5,7 @@ myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Comm
 	$scope.posts = Community.posts();
 	$scope.audio = Media.audio();
 	$scope.audioPlayer = null;
+	$scope.videoPlayer = null;
 	
 	$scope.test = 'test';
 	
@@ -70,6 +71,7 @@ myApp.controller('SeriesCtrl', function($scope, $stateParams, $location, Series)
 		$scope.selectedSermon = Series.sermon($stateParams.sermonId);
 	}
 	if($scope.selectedSermon !== null) {
-		console.log('test');
+		$scope.videoPlayer = document.getElementById('sermon_video_player');
+		$scope.videoPlayer.src = DOMAIN+'/play/vid/'+$scope.selectedSermon.MediaVideo.id+'/play.mp4;
 	}
 });
