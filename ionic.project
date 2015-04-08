@@ -1,6 +1,6 @@
 {
   "name": "gracepoint_ionic",
-  "app_id": "",
+  "app_id": "49c13670",
   "gulpStartupTasks": [
     "sass",
     "watch"

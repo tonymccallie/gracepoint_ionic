@@ -34,13 +34,32 @@ myApp.run(function ($ionicPlatform, Community) {
 	});
 });
 
-myApp.config(function ($stateProvider, $urlRouterProvider) {
+myApp.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 	// Ionic uses AngularUI Router which uses the concept of states
 	// Learn more here: https://github.com/angular-ui/ui-router
 	// Set up the various states which the app can be in.
 	// Each state's controller can be found in controllers.js
+	
+	$ionicConfigProvider.backButton.previousTitleText(false).text('').icon('ion-chevron-left');
 
-
+//	$stateProvider.state('app',{
+//		url: '/app',
+//		abstract: true,
+//		templateUrl: "templates/sidemenu.html"
+//	})
+//	.state('app.tab',{
+//		url: '/tab',
+//		abstract: true,
+//		templateUrl: "templates/tabs.html"
+//	})
+//	.state('app.tab.home',{
+//		url: '/home',
+//		views: {
+//			'tab-home': {
+//				templateUrl: 'templates/home.html'
+//			}
+//		}
+//	});
 	// setup an abstract state for the tabs directive
 	$stateProvider.state('tab', {
 		url: "/tab",

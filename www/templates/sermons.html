@@ -3,7 +3,7 @@
 		<img ng-if="selectedSeries.MediaImage.filename.length > 0" ng-src="{{imageDir+selectedSeries.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
 		<div class="threeleaf-separator"><span class="threeleaf">oZ</span> SERMON SERIES</div>
 		<ion-list>
-			<ion-item href="#/tab/sermon/{{item.MessageMessage.id}}" ng-repeat="item in sermons">
+			<ion-item ui-sref="tab.sermon({ sermonId: item.MessageMessage.id})" ng-repeat="item in sermons">
 				{{item.MessageMessage.title}}
 			</ion-item>
 		</ion-list>
