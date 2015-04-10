@@ -82,3 +82,7 @@ myApp.controller('SeriesCtrl', function($scope, $stateParams, $location, Series)
 		$scope.videoPlayer.play();
 	};
 });
+
+myApp.controller('EventsController', function($scope, $stateParams, Events) {
+	$scope.events = Events.events();
+});

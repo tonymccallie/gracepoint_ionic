@@ -92,6 +92,45 @@ myApp.service('Community', function ($http, $location) {
 	}
 });
 
+myApp.service('Events', function($http, $location) {
+	var self = this;
+	var events = [];
+	self.update = function() {
+		var deferred = $http.get(DOMAIN + '/ajax/plugin/organization/organization_departments/json/bb4cad3b-01f6-4f56-a3f3-b2f425ba85fa')
+			.success(function(response, status, headers, config) {
+				if(response.status === 'SUCCESS') {
+					angular.forEach(response.data, function(item) {
+						events.push(item);
+					});
+				} else {
+					alert('there was a server error for EVENTS');
+					console.log(response);
+				}
+			})
+			.error(function(response, status, headers, config) {
+				console.log(['error',data, status, headers, config]);
+			});
+	}
+	
+	if(events.length === 0) {
+		self.update();
+	}
+	
+	self.events = function() {
+		return events;
+	}
+	
+	self.get = function(config) {
+		if(events.length === 0) {
+			$location.path('/tab/home');
+			$location.replace();
+			return null;
+		} else {
+			return events[config.eventId];
+		}
+	}
+});
+
 myApp.service('Series', function($http, $location) {
 	var self = this;
 	var series = [];
@@ -294,3 +333,4 @@ myApp.factory('Sermons', function ($http, $location) {
 		}
 	};
 });
+

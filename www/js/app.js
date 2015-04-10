@@ -34,6 +34,12 @@ myApp.run(function ($ionicPlatform, Community) {
 	});
 });
 
+myApp.filter('trusted', ['$sce', function ($sce) {
+    return function(url) {
+        return $sce.trustAsResourceUrl(url);
+    };
+}]);
+
 myApp.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 	// Ionic uses AngularUI Router which uses the concept of states
 	// Learn more here: https://github.com/angular-ui/ui-router
@@ -139,7 +145,8 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider)
 		url: '/events',
 		views: {
 			'tab-events': {
-				templateUrl: 'templates/events.html'
+				templateUrl: 'templates/events.html',
+				controller: 'EventsController'
 			}
 		}
 	});
