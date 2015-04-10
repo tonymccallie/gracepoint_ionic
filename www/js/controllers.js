@@ -45,6 +45,10 @@ myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Comm
 		$scope.audioPlayer.play();
 		$scope.audioPlayer.pause();
 	}
+	
+	$scope.playVideo = function() {
+		$scope.videoPlayer.play();
+	};
 });
 
 myApp.controller('ArticleCtrl', function($scope, $stateParams, News) {
@@ -53,6 +57,7 @@ myApp.controller('ArticleCtrl', function($scope, $stateParams, News) {
 
 myApp.controller('PostCtrl', function($scope, $stateParams, Community) {
 	$scope.post = Community.get({postId: $stateParams.postId});
+	$scope.videoPlayer = document.getElementById('post_video_player');
 });
 
 myApp.controller('SeriesCtrl', function($scope, $stateParams, $location, Series) {
@@ -73,14 +78,8 @@ myApp.controller('SeriesCtrl', function($scope, $stateParams, $location, Series)
 	}
 	
 	if($scope.selectedSermon !== null) {
-		setTimeout(function(){
-			$scope.videoPlayer = document.getElementById('sermon_video_player');
-		},0);
+		$scope.videoPlayer = document.getElementById('sermon_video_player');
 	}
-	
-	$scope.playVideo = function() {
-		$scope.videoPlayer.play();
-	};
 });
 
 myApp.controller('EventsController', function($scope, $stateParams, Events) {
