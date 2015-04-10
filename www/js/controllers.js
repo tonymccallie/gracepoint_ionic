@@ -55,14 +55,17 @@ myApp.controller('ArticleCtrl', function($scope, $stateParams, News) {
 	$scope.article = News.get({articleId: $stateParams.articleId});
 });
 
-myApp.controller('PostCtrl', function($scope, $stateParams, Community) {
+myApp.controller('PostCtrl', function($scope, $stateParams, $timeout, Community) {
 	$scope.post = Community.get({postId: $stateParams.postId});
-	if($scope.post.MediaVideo.filename) {
-		$scope.videoPlayer = document.getElementById('post_video_player');
-		$scope.playVideo = function() {
-			$scope.videoPlayer.play();
-		};
-	}
+	
+	$timeout(function() {
+		if($scope.post.MediaVideo.filename) {
+			$scope.videoPlayer = document.getElementById('post_video_player');
+			$scope.playVideo = function() {
+				$scope.videoPlayer.play();
+			};
+		}
+	});
 });
 
 myApp.controller('SeriesCtrl', function($scope, $stateParams, $location, Series) {

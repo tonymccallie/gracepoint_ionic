@@ -8,8 +8,10 @@
 				</video>
 			</div>
 			<div class="threeleaf-separator">{{post.CommunityPost.title}}</div>
-			<a ng-if="post.MediaVideo.filename" class="button button-block button-positive" ng-click="playVideo()"><span class="threeleaf">V</span>WATCH</a>
-			<div ng-bind-html="post.CommunityPost.body" class="padding"></div>
+			<div class="padding">
+				<a ng-if="post.MediaVideo.filename" class="button button-block button-positive" ng-click="playVideo()"><span class="threeleaf">V</span>WATCH</a>
+				<div ng-bind-html="post.CommunityPost.body" class="padding"></div>
+			</div>
 		</ion-content>
 	</ion-view>
 </div>
