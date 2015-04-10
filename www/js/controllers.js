@@ -57,7 +57,12 @@ myApp.controller('ArticleCtrl', function($scope, $stateParams, News) {
 
 myApp.controller('PostCtrl', function($scope, $stateParams, Community) {
 	$scope.post = Community.get({postId: $stateParams.postId});
-	$scope.videoPlayer = document.getElementById('post_video_player');
+	if($scope.post.MediaVideo.filename) {
+		$scope.videoPlayer = document.getElementById('post_video_player');
+		$scope.playVideo = function() {
+			$scope.videoPlayer.play();
+		};
+	}
 });
 
 myApp.controller('SeriesCtrl', function($scope, $stateParams, $location, Series) {
@@ -79,6 +84,9 @@ myApp.controller('SeriesCtrl', function($scope, $stateParams, $location, Series)
 	
 	if($scope.selectedSermon !== null) {
 		$scope.videoPlayer = document.getElementById('sermon_video_player');
+		$scope.playVideo = function() {
+			$scope.videoPlayer.play();
+		};
 	}
 });
 
