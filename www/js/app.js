@@ -40,13 +40,38 @@ myApp.filter('trusted', ['$sce', function ($sce) {
     };
 }]);
 
+myApp.factory('Audio', function($document, $sce) {
+	var audioElement = $document[0].createElement('audio');
+	return {
+		audioElement: audioElement,
+		set: function(filename) {
+			audioElement.src = $sce.trustAsResourceUrl(filename);
+		},
+		play: function(filename) {
+			audioElement.play();     //  <-- Thats all you need
+		},
+		pause: function() {
+			audioElement.pause();
+		},
+		stop: function() {
+			audioElement.pause();
+			audioElement.src = audioElement.currentSrc; /** http://stackoverflow.com/a/16978083/1015046 **/
+		},
+		timer: function(callback) {
+			audioElement.ontimeupdate = function() {
+				callback(audioElement.duration, audioElement.currentTime)
+			};
+		}
+	}
+});
+
 myApp.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 	// Ionic uses AngularUI Router which uses the concept of states
 	// Learn more here: https://github.com/angular-ui/ui-router
 	// Set up the various states which the app can be in.
 	// Each state's controller can be found in controllers.js
 	
-	$ionicConfigProvider.backButton.previousTitleText(false).text('').icon('ion-chevron-left');
+	$ionicConfigProvider.backButton.previousTitleText(false).text('<i class="threeleaf">5</i>').icon('');
 
 //	$stateProvider.state('app',{
 //		url: '/app',

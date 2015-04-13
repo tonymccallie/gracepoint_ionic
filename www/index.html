@@ -34,11 +34,12 @@
 						<div ng-if="audio.MessageMessage.filename !== null">
 							<ion-item class="item-divider bar bar-positive"><span class="threeleaf">l</span>Now Playing</ion-item>
 							<ion-item>
-								<button ng-click="play()">PLAY</button>
-								<button ng-click="pause()">PAUSE</button>
+								<button ng-click="playAudio()">PLAY</button>
+								<button ng-click="pauseAudio()">PAUSE</button>
+								<button ng-click="stopAudio()">STOP</button>
 							</ion-item>
 							<ion-item>{{audio.MessageMessage.title}}</ion-item>
-							<audio id="message_audio_player" controls="controls" hidden="hidden" src="null"></audio>
+							<ion-item>{{audioStats.duration}} / {{audioStats.current}}</ion-item>
 						</div>
 						<ion-item class="item-divider bar bar-positive"><span class="threeleaf">b</span>Menu</ion-item>
 						<ion-item nav-clear menu-close href="#/tab/about">About</ion-item>

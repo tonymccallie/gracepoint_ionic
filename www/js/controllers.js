@@ -1,9 +1,17 @@
-myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Community, Media) {
+myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Community, Audio) {
 	$scope.DOMAIN = DOMAIN;
 	$scope.imageDir = DOMAIN+'/img/thumb/';
 	$scope.articles = News.articles();
 	$scope.posts = Community.posts();
-	$scope.audio = Media.audio();
+	$scope.audio = {
+		MessageMessage: {
+			filename: null
+		}
+	};
+	$scope.audioStats = {
+		current: 0,
+		duration: 0
+	};
 	$scope.audioPlayer = null;
 	$scope.videoPlayer = null;
 	
@@ -30,20 +38,31 @@ myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Comm
 	$scope.setAudio = function(audio) {
 		$scope.audio = audio;
 		$scope.showRightMenu();
-		setTimeout(function(){
-			$scope.audioPlayer = document.getElementById('message_audio_player');
-			$scope.audioPlayer.src = DOMAIN+'/play/mp3/'+audio.MediaAudio.id+'/play.mp3';
-			$scope.play();
-		},0);
+		Audio.set(DOMAIN+'/play/mp3/'+audio.MediaAudio.id+'/play.mp3');
+		Audio.play();
+		Audio.timer(function(duration,current) {
+			$scope.audioStats.duration = duration;
+			$scope.audioStats.current = current;
+			$scope.$apply();
+		});
+//		setTimeout(function(){
+//			$scope.audioPlayer = document.getElementById('message_audio_player');
+//			$scope.audioPlayer.src = DOMAIN+'/play/mp3/'+audio.MediaAudio.id+'/play.mp3';
+//			$scope.play();
+//		},0);
 	}
 	
-	$scope.play = function() {
-		$scope.audioPlayer.play();
+	$scope.playAudio = function() {
+		Audio.play();
 	}
 	
-	$scope.pause = function() {
-		$scope.audioPlayer.play();
-		$scope.audioPlayer.pause();
+	$scope.pauseAudio = function() {
+		Audio.play();
+		Audio.pause();
+	}
+	
+	$scope.stopAudio = function() {
+		Audio.stop();
 	}
 	
 	$scope.playVideo = function() {

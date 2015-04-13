@@ -5,7 +5,7 @@
 	<ion-content class="">
 		<ion-refresher pulling-text="Pull to refresh..." on-refresh="doHomeRefresh()"></ion-refresher>
 		<div class="fade-box">
-		<ion-slide-box does-continue="true" auto-play="true" on-slide-changed="slideHasChanged($index)">
+		<ion-slide-box does-continue="true" auto-play="true">
 			<ion-slide ng-repeat="article in articles">
 				<div class="box blue">
 					<a href="#/tab/article/{{$index}}">
