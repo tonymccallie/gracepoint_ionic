@@ -1,4 +1,4 @@
-myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Community, Audio) {
+myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Community, AudioFactory) {
 	$scope.DOMAIN = DOMAIN;
 	$scope.imageDir = DOMAIN+'/img/thumb/';
 	$scope.articles = News.articles();
@@ -38,9 +38,9 @@ myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Comm
 	$scope.setAudio = function(audio) {
 		$scope.audio = audio;
 		$scope.showRightMenu();
-		Audio.set(DOMAIN+'/play/mp3/'+audio.MediaAudio.id+'/play.mp3');
-		Audio.play();
-		Audio.timer(function(duration,current) {
+		AudioFactory.set(DOMAIN+'/play/mp3/'+audio.MediaAudio.id+'/play.mp3');
+		AudioFactory.play();
+		AudioFactory.timer(function(duration,current) {
 			$scope.audioStats.duration = duration;
 			$scope.audioStats.current = current;
 			$scope.$apply();
@@ -53,16 +53,16 @@ myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Comm
 	}
 	
 	$scope.playAudio = function() {
-		Audio.play();
+		AudioFactory.play();
 	}
 	
 	$scope.pauseAudio = function() {
-		Audio.play();
-		Audio.pause();
+		AudioFactory.play();
+		AudioFactory.pause();
 	}
 	
 	$scope.stopAudio = function() {
-		Audio.stop();
+		AudioFactory.stop();
 	}
 	
 	$scope.playVideo = function() {

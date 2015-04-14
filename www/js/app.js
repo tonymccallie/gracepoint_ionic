@@ -40,8 +40,8 @@ myApp.filter('trusted', ['$sce', function ($sce) {
     };
 }]);
 
-myApp.factory('Audio', function($document, $sce) {
-	var audioElement = $document[0].createElement('audio');
+myApp.factory('AudioFactory', function($document, $sce) {
+	var audioElement = new Audio();
 	return {
 		audioElement: audioElement,
 		set: function(filename) {
