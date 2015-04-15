@@ -1,0 +1,7 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/Users/tonymccallie/Sites/gracepoint_ionic/www/lib/ionic_old/js/ionic.min.js",
+        "/Users/tonymccallie/Sites/gracepoint_ionic/www/js/services.js",
+        "/Users/tonymccallie/Sites/gracepoint_ionic/www/js/controllers.js"
+    ]
+}

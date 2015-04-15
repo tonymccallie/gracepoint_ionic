@@ -41,8 +41,8 @@ myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Comm
 		AudioFactory.set(DOMAIN+'/play/mp3/'+audio.MediaAudio.id+'/play.mp3');
 		AudioFactory.play();
 		AudioFactory.timer(function(duration,current) {
-			$scope.audioStats.duration = duration;
-			$scope.audioStats.current = current;
+			$scope.audioStats.duration = moment.unix(duration).format('mm:ss');
+			$scope.audioStats.current = moment.unix(current).format('mm:ss');
 			$scope.$apply();
 		});
 //		setTimeout(function(){
