@@ -65,9 +65,18 @@ myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Comm
 		AudioFactory.stop();
 	}
 	
+	$scope.fwdAudio = function() {
+		AudioFactory.fwd();
+	}
+	
+	$scope.rwdAudio = function() {
+		AudioFactory.rwd();
+	}
+	
 	$scope.playVideo = function() {
 		$scope.videoPlayer.play();
 	};
+	
 });
 
 myApp.controller('ArticleCtrl', function($scope, $stateParams, News) {

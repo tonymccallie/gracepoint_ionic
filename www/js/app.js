@@ -57,6 +57,22 @@ myApp.factory('AudioFactory', function($document, $sce) {
 			audioElement.pause();
 			audioElement.src = audioElement.currentSrc; /** http://stackoverflow.com/a/16978083/1015046 **/
 		},
+		fwd: function() {
+			var current = audioElement.currentTime;
+			var jump = current + 30;
+			if(jump > audioElement.duration) {
+				jump = audioElement.duration;
+			}
+			audioElement.currentTime = jump;
+		},
+		rwd: function() {
+			var current = audioElement.currentTime;
+			var jump = current - 30;
+			if(jump <= 0) {
+				jump = 0;
+			}
+			audioElement.currentTime = jump;
+		},
 		timer: function(callback) {
 			audioElement.ontimeupdate = function() {
 				callback(audioElement.duration, audioElement.currentTime)
