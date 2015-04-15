@@ -7727,7 +7727,8 @@ body, h1, h2, h3, h4, h5, h6 {
 .series_list {
   width: 50%;
   float: left;
-  margin-top: -5px; }
+  margin-top: -5px;
+  padding-bottom: 5px; }
 
 .community_post {
   display: block;
@@ -7750,3 +7751,24 @@ body, h1, h2, h3, h4, h5, h6 {
   border: solid 1px #CE4A3B; }
   #player_progress #player_progress_indicator {
     background: #CE4A3B; }
+
+.scaleVid {
+  position: relative;
+  height: 0; }
+
+.ratio16x9 {
+  padding-bottom: 56.25%; }
+
+.ratio4x3 {
+  padding-bottom: 75%; }
+
+.audioPlayerRatio {
+  padding-bottom: 35px; }
+
+.scaleVid > div, .scaleVid > object, .scaleVid > embed, .scaleVid > iframe, .scaleVid > img, .scaleVid > video {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100; }

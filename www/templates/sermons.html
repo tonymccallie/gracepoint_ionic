@@ -1,6 +1,8 @@
 <ion-view title="SERIES">
 	<ion-content>
-		<img ng-if="selectedSeries.MediaImage.filename.length > 0" ng-src="{{imageDir+selectedSeries.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
+		<div class="scaleVid ratio16x9">
+			<img ng-if="selectedSeries.MediaImage.filename.length > 0" ng-src="{{imageDir+selectedSeries.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
+		</div>
 		<div class="threeleaf-separator">{{selectedSeries.title}}</div>
 		<ion-list>
 			<ion-item ui-sref="tab.sermon({ sermonId: item.MessageMessage.id})" ng-repeat="item in sermons">

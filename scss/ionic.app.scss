@@ -119,6 +119,7 @@ body, h1, h2, h3, h4, h5, h6 {
 	width: 50%;
 	float: left;
 	margin-top: -5px;
+	padding-bottom: 5px;
 }
 
 .community_post {
@@ -151,6 +152,37 @@ body, h1, h2, h3, h4, h5, h6 {
 	#player_progress_indicator {
 		background: $positive;
 	}
+}
+
+.scaleVid {
+	position:relative;
+	height:0;
+}
+
+.ratio16x9 {
+	padding-bottom:56.25%;
+}
+
+.ratio4x3 {
+	padding-bottom:75%;
+}
+
+.audioPlayerRatio {
+	padding-bottom:35px;
+}
+
+.scaleVid > div,
+.scaleVid > object,
+.scaleVid > embed,
+.scaleVid > iframe,
+.scaleVid > img,
+.scaleVid > video {
+	position:absolute !important;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index: 100;
 }
 
 //.fade-box {
