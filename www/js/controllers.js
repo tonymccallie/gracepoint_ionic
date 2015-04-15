@@ -10,7 +10,8 @@ myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Comm
 	};
 	$scope.audioStats = {
 		current: 0,
-		duration: 0
+		duration: 0,
+		percentage: 0
 	};
 	$scope.audioPlayer = null;
 	$scope.videoPlayer = null;
@@ -41,6 +42,7 @@ myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Comm
 		AudioFactory.set(DOMAIN+'/play/mp3/'+audio.MediaAudio.id+'/play.mp3');
 		AudioFactory.play();
 		AudioFactory.timer(function(duration,current) {
+			$scope.audioStats.percentage = (current/duration)*100;
 			$scope.audioStats.duration = moment.unix(duration).format('mm:ss');
 			$scope.audioStats.current = moment.unix(current).format('mm:ss');
 			$scope.$apply();
@@ -71,6 +73,13 @@ myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Comm
 	
 	$scope.rwdAudio = function() {
 		AudioFactory.rwd();
+	}
+	
+	$scope.scrubAudio = function(event) {
+		var progress_bar = document.getElementById('player_progress');
+		var left_edge = window.screen.width - 275 + progress_bar.offsetLeft;
+		var percentage = (event.pageX - left_edge) / progress_bar.offsetWidth;
+		AudioFactory.scrub(percentage);
 	}
 	
 	$scope.playVideo = function() {

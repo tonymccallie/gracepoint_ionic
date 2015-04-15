@@ -7745,3 +7745,8 @@ body, h1, h2, h3, h4, h5, h6 {
 
 .player_controls span {
   font-size: 3em; }
+
+#player_progress {
+  border: solid 1px #CE4A3B; }
+  #player_progress #player_progress_indicator {
+    background: #CE4A3B; }

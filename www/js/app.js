@@ -42,6 +42,11 @@ myApp.filter('trusted', ['$sce', function ($sce) {
 
 myApp.factory('AudioFactory', function($document, $sce) {
 	var audioElement = new Audio();
+	
+//	self.progbar.addEventListener('click', function(event) {
+//		var percent = (event.pageX - self.progbar.offsetLeft - $('.uk-offcanvas-bar').get(0).offsetLeft) / $('#progress_bar').width();
+//		self.audio.currentTime = self.audio.duration * percent;
+//	});
 	return {
 		audioElement: audioElement,
 		set: function(filename) {
@@ -72,6 +77,9 @@ myApp.factory('AudioFactory', function($document, $sce) {
 				jump = 0;
 			}
 			audioElement.currentTime = jump;
+		},
+		scrub: function(percent) {
+			audioElement.currentTime = audioElement.duration * percent;
 		},
 		timer: function(callback) {
 			audioElement.ontimeupdate = function() {

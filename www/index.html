@@ -20,7 +20,7 @@
 	<body ng-app="starter" animation="slide-left-right-ios7">
 		<!-- The nav bar that will be updated as we navigate between views. -->
 		<ion-side-menus ng-controller="NavCtrl">
-			<ion-side-menu-content>
+			<ion-side-menu-content id="side_menu">
 				<ion-nav-bar class="bar-stable bar-positive nav-title-slide-ios7">
 					<ion-nav-back-button class="button-clear"></ion-nav-back-button>
 					<ion-nav-buttons side="right">
@@ -41,6 +41,11 @@
 								<div class="col"><span ng-click="fwdAudio()" class="threeleaf">8</span></div>
 							</ion-item>
 							<ion-item>{{audio.MessageMessage.title}}</ion-item>
+							<ion-item>
+								<div id="player_progress" ng-click="scrubAudio($event)">
+									<div id="player_progress_indicator" style="width:{{audioStats.percentage}}%;">&nbsp;</div>
+								</div>
+							</ion-item>
 							<ion-item>{{audioStats.duration}} / {{audioStats.current}}</ion-item>
 						</div>
 						<ion-item class="item-divider bar bar-positive"><span class="threeleaf">b</span>Menu</ion-item>

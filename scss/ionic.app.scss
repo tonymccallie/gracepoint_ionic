@@ -146,6 +146,13 @@ body, h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+#player_progress {
+	border: solid 1px $positive;
+	#player_progress_indicator {
+		background: $positive;
+	}
+}
+
 //.fade-box {
 //	position: fixed;
 //	top: 0;
