@@ -199,7 +199,7 @@ myApp.service('Series', function($http, $location) {
 		});
 		
 		if(sermon.MessageMessage.id !== sermonId) {
-			sermon = latestMessage;
+			sermon = latestMessage.message;
 		}
 	}
 	
@@ -238,99 +238,3 @@ myApp.service('Series', function($http, $location) {
 		self.getLatest();
 	}
 });
-
-myApp.factory('SeriesX', function($http, $location) {
-	var self = this;
-	var series = [];
-	var latestMessage = [];
-	
-	self.update = function() {
-		series = [];
-		var deferred = $http.get(DOMAIN+'/ajax/plugin/message/message_series/json/category:1')
-			.success(function(response, status, headers, config) {
-				if(response.status === 'SUCCESS') {
-					angular.forEach(response.data, function(item) {
-						series.push(item);
-					});
-				} else {
-					alert('there was a server error for SERIES');
-					console.log(response);
-				}
-			})
-			.error(function(response, status, headers, config) {
-				console.log(['error',data, status, headers, config]);
-			});
-		return deferred;
-	}
-	
-	self.getLatest = function() {
-		latestMessage = [];
-		var deferred = $http.get(DOMAIN+'/ajax/plugin/message/message_messages/json/limit:1/category:1')
-			.success(function(response, status, headers, config) {
-				if(response.status === 'SUCCESS') {
-					latestMessage = response.data;
-					console.log(latestMessage);
-				} else {
-					alert('there was a server error for SERIES');
-					console.log(response);
-				}
-			})
-			.error(function(response, status, headers, config) {
-				console.log(['error',data, status, headers, config]);
-			});
-		return deferred;
-	}
-	
-	if(series.length === 0) {
-		self.update();
-	}
-	
-	if(latestMessage.length === 0) {
-		self.getLatest();
-	}
-	
-	return {
-		latestMessage: latestMessage,
-		series: series,
-		update: self.update,
-		get: function(config) {
-			if(typeof sermons[config.seriesId] === 'undefined') {
-				sermons[config.seriesId] = {
-					name: 'TEst'	
-				};
-			}
-			return sermons[config.seriesId];
-		}
-	};
-});
-
-myApp.factory('Sermons', function ($http, $location) {
-	var self = this;
-	var latest = null;
-	var sermons = [];
-	self.latest = function() {
-		$http.get(DOMAIN+'/ajax/plugin/message/message_series/json/category:1')
-			.success(function(response, status, headers, config) {
-				if(response.status === 'SUCCESS') {
-					angular.forEach(response.data, function(item) {
-						sermons.push(item);
-					});
-				} else {
-					alert('there was a server error for SERIES');
-					console.log(response);
-				}
-			})
-			.error(function(response, status, headers, config) {
-				console.log(['error',data, status, headers, config]);
-			});
-	}
-	
-	return {
-		latest: latest,
-		get: function(config) {
-			console.log(config);
-			return sermons;
-		}
-	};
-});
-

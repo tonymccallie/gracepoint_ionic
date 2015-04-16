@@ -117,9 +117,9 @@ myApp.controller('SeriesCtrl', function($scope, $stateParams, $location, Series)
 	}
 	
 	$scope.selectedSermon = null;
-
 	if(typeof $stateParams.sermonId !== 'undefined') {
 		$scope.selectedSermon = Series.sermon($stateParams.sermonId);
+		console.log($scope.selectedSermon);
 	}
 	
 	if($scope.selectedSermon !== null) {
