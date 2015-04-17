@@ -30,6 +30,10 @@ body, h1, h2, h3, h4, h5, h6 {
 	font-family: "LatoLight";
 }
 
+.padding {
+	padding: 15px;
+}
+
 .scaleVid {
 	position:relative;
 	height:0;
@@ -112,14 +116,18 @@ body, h1, h2, h3, h4, h5, h6 {
 .threeleaf-live:before {content: "oz";}
 
 .series_listing {
-	padding-top: 5px;
+	//padding-top: 5px;
+	padding: 5px;
+	width: 100%;
+	float: left;
+	.padding {
+		padding: 5px;
+	}
 }
 
 .series_list {
 	width: 50%;
 	float: left;
-	margin-top: -5px;
-	padding-bottom: 5px;
 }
 
 .community_post {
@@ -131,13 +139,16 @@ body, h1, h2, h3, h4, h5, h6 {
 	}
 	h4 {
 		position: absolute;
-		bottom: 0;
+		bottom: -1px;
 		left: 0;
 		margin: 0;
 		padding: 5px 2%;
 		width: 100%;
 		background: $positive;
 		color: $light;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 }
 

@@ -23,10 +23,10 @@
 					<a href="#/tab/post/{{$index}}">
 						<div ng-switch on="post.CommunityPost.type">
 							<div ng-switch-when="video">
-								<img ng-if="post.MediaVideo.preview !== null" ng-src="{{imageDir+post.MediaVideo.preview }}/width:800/height:450/crop:true/zoom:auto/blur:true/greyscale:true" style="width: 100%;" />
+								<img ng-if="post.MediaVideo.preview !== null" ng-src="{{imageDir+post.MediaVideo.preview }}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
 							</div>
 							<div ng-siwtch-default>
-								<img ng-if="post.MediaImage.filename !== null" ng-src="{{imageDir+post.MediaImage.filename }}/width:800/height:450/crop:true/zoom:auto/blur:true/greyscale:true" style="width: 100%;" />
+								<img ng-if="post.MediaImage.filename !== null" ng-src="{{imageDir+post.MediaImage.filename }}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
 							</div>
 						</div>
 						<h4 class="redbg">{{post.CommunityPost.title}}</h4>
