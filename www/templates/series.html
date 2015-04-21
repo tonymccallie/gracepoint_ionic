@@ -4,7 +4,7 @@
 		<div class="scaleVid ratio16x9">
 			<a ng-if="latestMessage.message.MessageSeries.MediaImage.filename.length > 0" href="#/tab/sermon/{{latestMessage.message.MessageMessage.id}}">
 				<img ng-src="{{imageDir+latestMessage.message.MediaVideo.preview}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
-				<h4>{{latestMessage.message.MessageMessage.title}}</h4>
+				<h4 class="latest_title">{{latestMessage.message.MessageMessage.title}}</h4>
 			</a>
 		</div>
 		<div class="threeleaf-separator"><span class="threeleaf">oZ</span> SERMON SERIES</div>

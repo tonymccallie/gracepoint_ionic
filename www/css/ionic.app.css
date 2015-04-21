@@ -7670,6 +7670,10 @@ a {
 .audioPlayerRatio {
   padding-bottom: 15%; }
 
+.scaleVid {
+  background: url(../img/loading.gif) center center no-repeat #9d9d9d;
+  background-size: 20%; }
+
 .scaleVid div, .scaleVid object, .scaleVid embed, .scaleVid iframe, .scaleVid video {
   position: absolute !important;
   top: 0;
@@ -7735,6 +7739,15 @@ a {
   float: left; }
   .series_listing .padding {
     padding: 5px; }
+
+.latest_title {
+  width: 100%;
+  padding: 2%;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.5); }
 
 .series_list {
   width: 50%;
