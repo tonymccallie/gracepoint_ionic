@@ -73,6 +73,9 @@
 		<splash src="resources/ios/splash/Default@2x~iphone.png" width="640" height="960"/>
 		<splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
 	</platform>
+	<gap:splash src="resources/ios/splash/Default-667h.png" gap:platform="ios" width="750" height="1334" />
+	<gap:splash src="resources/ios/splash/Default-736h.png" gap:platform="ios" width="1242" height="2208" />
+	<gap:splash src="resources/ios/splash/Default-Landscape-736h.png" gap:platform="ios" width="2208" height="1242" />
 	<platform name="android">
 		<icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
 		<icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>
