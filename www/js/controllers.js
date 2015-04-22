@@ -1,8 +1,13 @@
-myApp.controller('NavCtrl', function ($scope, $ionicSideMenuDelegate, News, Community, AudioFactory) {
+myApp.controller('NavCtrl', function ($scope, $sce, $ionicSideMenuDelegate, News, Community, AudioFactory) {
 	$scope.DOMAIN = DOMAIN;
 	$scope.imageDir = DOMAIN+'/img/thumb/';
 	$scope.articles = News.articles();
 	$scope.posts = Community.posts();
+	
+	$scope.trust = function(snippet) {
+		return $sce.trustAsHtml(snippet);
+	};
+	
 	$scope.audio = {
 		MessageMessage: {
 			filename: null
