@@ -30,14 +30,16 @@ body, h1, h2, h3, h4, h5, h6 {
 	font-family: "LatoLight";
 }
 
-a {
-	color: $positive;
-	text-decoration: none;
-	font-family: "LatoBold";
-}
-
 .padding {
 	padding: 15px;
+	a {
+		color: $positive;
+		text-decoration: none;
+		font-family: "LatoBold";
+	}
+	a.button {
+		font-family: "LatoLight";
+	}
 }
 
 .scaleVid {
@@ -176,6 +178,7 @@ a {
 .player_controls {
 	span {
 		font-size: 3em;
+		color: #999;
 	}
 }
 

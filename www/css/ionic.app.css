@@ -7649,13 +7649,14 @@ a.button {
 body, h1, h2, h3, h4, h5, h6 {
   font-family: "LatoLight"; }
 
-a {
-  color: #CE4A3B;
-  text-decoration: none;
-  font-family: "LatoBold"; }
-
 .padding {
   padding: 15px; }
+  .padding a {
+    color: #CE4A3B;
+    text-decoration: none;
+    font-family: "LatoBold"; }
+  .padding a.button {
+    font-family: "LatoLight"; }
 
 .scaleVid {
   position: relative;
@@ -7771,7 +7772,8 @@ a {
     text-overflow: ellipsis; }
 
 .player_controls span {
-  font-size: 3em; }
+  font-size: 3em;
+  color: #999; }
 
 #player_progress {
   border: solid 1px #CE4A3B; }

@@ -34,19 +34,30 @@
 					<ion-list>
 						<div ng-if="audio.MessageMessage.filename !== null">
 							<ion-item class="item-divider bar bar-positive"><span class="threeleaf">l</span>Now Playing</ion-item>
+							<ion-item class="row">
+								<div class="col">
+									<img ng-src="{{imageDir+audio.MessageSeries.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
+								</div>
+								<div class="col col-center">
+									{{audioStats.duration}} / {{audioStats.current}}
+								</div>
+							</ion-item>
 							<ion-item class="row player_controls">
 								<div class="col"><span ng-click="pauseAudio()" class="threeleaf">p</span></div>
 								<div class="col"><span ng-click="playAudio()" class="threeleaf">P</span></div>
 								<div class="col"><span ng-click="rwdAudio()" class="threeleaf">7</span></div>
 								<div class="col"><span ng-click="fwdAudio()" class="threeleaf">8</span></div>
 							</ion-item>
-							<ion-item>{{audio.MessageMessage.title}}</ion-item>
+							<ion-item>
+								<h3>{{audio.MessageMessage.title}}</h3>
+								<h4>{{audio.MessageAuthor.name}}</h4>
+							</ion-item>
 							<ion-item>
 								<div id="player_progress" ng-click="scrubAudio($event)">
 									<div id="player_progress_indicator" style="width:{{audioStats.percentage}}%;">&nbsp;</div>
 								</div>
 							</ion-item>
-							<ion-item>{{audioStats.duration}} / {{audioStats.current}}</ion-item>
+							<ion-item></ion-item>
 						</div>
 						<ion-item class="item-divider bar bar-positive"><span class="threeleaf">b</span>Menu</ion-item>
 						<ion-item nav-clear menu-close href="#/tab/about">About</ion-item>
