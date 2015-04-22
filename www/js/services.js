@@ -60,6 +60,10 @@ myApp.service('Community', function ($http, $location) {
 			.success(function(response, status, headers, config) {
 				if(response.status === 'SUCCESS') {
 					angular.forEach(response.data, function(item) {
+						str = item.CommunityPost.body;
+						str = str.replace(/href=\"\//ig,'href="http://www.gracepointcoppell.org/');
+						str = str.replace(/src=\"\//ig,'src="http://www.gracepointcoppell.org/');
+						item.CommunityPost.body = str.replace(/href=\"(.+?)\"/gi,'onclick="window.open(\'$1\',\'_system\',\'location=yes\');"');
 						posts.push(item);
 					});
 				} else {
