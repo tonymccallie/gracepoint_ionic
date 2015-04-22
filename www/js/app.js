@@ -11,6 +11,12 @@ if(devtest) {
 	isMobile = false;
 }
 
+var onclickFix = function(html) {
+	html = html.replace(/href=\"\//ig,'href="http://www.gracepointcoppell.org/');
+	html = html.replace(/src=\"\//ig,'src="http://www.gracepointcoppell.org/');
+	return html.replace(/href=\"(.+?)\"/gi,'onclick="window.open(\'$1\',\'_system\',\'location=yes\');"');
+}
+
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
