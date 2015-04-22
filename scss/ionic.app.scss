@@ -76,6 +76,11 @@ body, h1, h2, h3, h4, h5, h6 {
 	height:100%;
 }
 
+.menu-right ion-item:first-child {
+	padding-top: 40px;
+	height: 84px;
+}
+
 .has-tabs, .bar-footer.has-tabs {
 	bottom: 59px;
 }
