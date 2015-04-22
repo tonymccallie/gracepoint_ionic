@@ -25,7 +25,7 @@
 							<div ng-switch-when="video">
 								<img ng-if="post.MediaVideo.preview !== null" ng-src="{{imageDir+post.MediaVideo.preview }}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
 							</div>
-							<div ng-siwtch-default>
+							<div ng-switch-default>
 								<img ng-if="post.MediaImage.filename !== null" ng-src="{{imageDir+post.MediaImage.filename }}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
 							</div>
 						</div>
