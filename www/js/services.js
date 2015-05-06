@@ -15,7 +15,7 @@ myApp.service('News', function ($http, $location, $ionicSlideBoxDelegate) {
 	var self = this;
 	var articles = [];
 	self.update = function() {
-		var deferred = $http.get(DOMAIN+'/ajax/plugin/news/news_articles/json/limit:4/category:2')
+		var deferred = $http.get(DOMAIN+'/ajax/plugin/news/news_articles/json/limit:4/category:3')
 			.success(function(response, status, headers, config) {
 				if(response.status === 'SUCCESS') {
 					angular.forEach(response.data, function(item) {
@@ -167,6 +167,7 @@ myApp.service('Events', function($http, $location) {
 			.success(function(response, status, headers, config) {
 				if(response.status === 'SUCCESS') {
 					angular.forEach(response.data, function(item) {
+						item.displayDate = moment(item.OccurrenceStartTime).format("M/DD");
 						events.push(item);
 					});
 				} else {
