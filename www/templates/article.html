@@ -5,7 +5,7 @@
 				<img src="{{imageDir+article.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto"/>
 			</div>
 			<div class="threeleaf-separator">{{article.NewsArticle.title}}</div>
-			<div ng-bind-html="trust(post.NewsArticle.body)" class="padding"></div>
+			<div ng-bind-html="trust(article.NewsArticle.body)" class="padding"></div>
 		</ion-content>
 	</ion-view>
 </div>
