@@ -97,6 +97,10 @@ myApp.controller('ArticleCtrl', function($scope, $stateParams, News) {
 	$scope.article = News.get({articleId: $stateParams.articleId});
 });
 
+myApp.controller('GroupsCtrl', function($scope, $stateParams, Groups) {
+	$scope.groups = Groups.groups();
+});
+
 myApp.controller('PostCtrl', function($scope, $stateParams, $timeout, Community) {
 	$scope.post = Community.get({postId: $stateParams.postId});
 	

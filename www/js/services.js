@@ -94,6 +94,71 @@ myApp.service('Community', function ($http, $location) {
 	}
 });
 
+myApp.service('Groups', function($http, $location) {
+	var self = this;
+	var groups = [
+		{
+			name: 'Smith',
+			day: 'Monday',
+			time: '7:00pm',
+			descr: 'Wow while dipped dogged one far hey considering and after well darn out falteringly invoked more teasingly buoyantly that far jeez irrespective darn away after forcefully lighted close before built without jeepers that far.'
+		},
+		{
+			name: 'Johnson',
+			day: 'Monday',
+			time: '8:00am',
+			descr: 'Wow while dipped dogged one far hey considering and after well darn out falteringly invoked more teasingly buoyantly that far jeez irrespective darn away after forcefully lighted close before built without jeepers that far.'
+		},
+		{
+			name: 'Jones',
+			day: 'Monday',
+			time: '7:00pm',
+			descr: 'Wow while dipped dogged one far hey considering and after well darn out falteringly invoked more teasingly buoyantly that far jeez irrespective darn away after forcefully lighted close before built without jeepers that far.'
+		},
+		{
+			name: 'Worhsip Team',
+			day: 'Thursday',
+			time: '6:30pm',
+			descr: 'Wow while dipped dogged one far hey considering and after well darn out falteringly invoked more teasingly buoyantly that far jeez irrespective darn away after forcefully lighted close before built without jeepers that far.'
+		},
+		{
+			name: 'Mothers in Prayer',
+			day: 'Tuesday',
+			time: '10:00am',
+			descr: 'Wow while dipped dogged one far hey considering and after well darn out falteringly invoked more teasingly buoyantly that far jeez irrespective darn away after forcefully lighted close before built without jeepers that far.'
+		},
+		{
+			name: 'Deacons',
+			day: 'Sunday',
+			time: '2:00pm',
+			descr: 'Wow while dipped dogged one far hey considering and after well darn out falteringly invoked more teasingly buoyantly that far jeez irrespective darn away after forcefully lighted close before built without jeepers that far.'
+		},
+		{
+			name: 'Loaves and Fishes',
+			day: 'Every 3rd Sunday',
+			time: '4:00pm',
+			descr: 'Wow while dipped dogged one far hey considering and after well darn out falteringly invoked more teasingly buoyantly that far jeez irrespective darn away after forcefully lighted close before built without jeepers that far.'
+		},
+		{
+			name: 'McCready',
+			day: 'Monday & Wednesday',
+			time: '12:00pm',
+			descr: 'Wow while dipped dogged one far hey considering and after well darn out falteringly invoked more teasingly buoyantly that far jeez irrespective darn away after forcefully lighted close before built without jeepers that far.'
+		},
+		{
+			name: 'Hospital Visitations',
+			day: 'Wednesday',
+			time: '3:00pm',
+			descr: 'Wow while dipped dogged one far hey considering and after well darn out falteringly invoked more teasingly buoyantly that far jeez irrespective darn away after forcefully lighted close before built without jeepers that far.'
+		},
+		
+	];
+	
+	self.groups = function() {
+		return groups;
+	}
+});
+
 myApp.service('Events', function($http, $location) {
 	var self = this;
 	var events = [];

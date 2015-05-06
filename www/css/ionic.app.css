@@ -7804,3 +7804,18 @@ body, h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   z-index: 100; }
+
+.event_list .item {
+  padding-left: 76px;
+  position: relative; }
+  .event_list .item .accentCol {
+    background: #e6e6e6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 100%; }
+    .event_list .item .accentCol span {
+      display: block;
+      padding: 16px;
+      text-align: center; }

@@ -191,7 +191,8 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider)
 		url: '/groups',
 		views: {
 			'tab-groups': {
-				templateUrl: 'templates/groups.html'
+				templateUrl: 'templates/groups.html',
+				controller: 'GroupsCtrl'
 			}
 		}
 	});

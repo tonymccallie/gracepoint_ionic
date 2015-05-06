@@ -1,5 +1,14 @@
 <ion-view title="Groups">
 	<ion-content class="">
-		<h1>Groups</h1>
+		<div class="scaleVid ratio16x9">
+			<img src="img/1a.jpg"/>
+		</div>
+		<div class="threeleaf-separator">GROUPS</div>
+		<div class="list">
+			<a class="item" ng-repeat="group in groups">
+				<h2>{{group.name}}</h2>
+				<p>{{group.day}} {{group.time}}</p>
+			</a>
+		</div>
 	</ion-content>
 </ion-view>
