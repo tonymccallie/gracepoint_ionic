@@ -7782,7 +7782,17 @@ body, h1, h2, h3, h4, h5, h6 {
 #player_progress {
   border: solid 1px #CE4A3B; }
   #player_progress #player_progress_indicator {
-    background: #CE4A3B; }
+    background: #ccc;
+    border-right: solid 4px #CE4A3B; }
+
+.player_progress_timers {
+  width: 100%;
+  float: left; }
+  .player_progress_timers div {
+    width: 50%;
+    float: left; }
+  .player_progress_timers .player_progress_duration {
+    text-align: right; }
 
 .scaleVid {
   position: relative;

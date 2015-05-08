@@ -5,9 +5,9 @@
 		</div>
 		<div class="threeleaf-separator">GROUPS</div>
 		<div class="list">
-			<a class="item" ng-repeat="group in groups">
-				<h2>{{group.name}}</h2>
-				<p>{{group.day}} {{group.time}}</p>
+			<a class="item" ui-sref="tab.group({ groupId: group.BridgeCcbGroup.id})" ng-repeat="group in groups">
+				<h2>{{group.BridgeCcbGroup.name}}</h2>
+				<p>{{group.BridgeCcbGroup.meeting_day}} {{group.BridgeCcbGroup.meeting_time}}</p>
 			</a>
 		</div>
 	</ion-content>

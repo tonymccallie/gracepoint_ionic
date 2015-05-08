@@ -1,0 +1,14 @@
+<ion-view title="Group">
+	<ion-content class="">
+		<div class="scaleVid ratio16x9">
+			<img src="img/1a.jpg"/>
+		</div>
+		<div class="threeleaf-separator">{{selectedGroup.BridgeCcbGroup.name}}</div>
+		<div class="padding">
+			<h4>Leader: {{selectedGroup.BridgeCcbGroup.first_name}} {{selectedGroup.BridgeCcbGroup.last_name}}</h4>
+			{{selectedGroup.BridgeCcbGroup.description}}
+			When: {{selectedGroup.BridgeCcbGroup.meeting_day}} {{selectedGroup.BridgeCcbGroup.meeting_time}}<br />
+			Where: {{selectedGroup.BridgeCcbGroup.area}}
+		</div>
+	</ion-content>
+</ion-view>

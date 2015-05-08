@@ -34,13 +34,8 @@
 					<ion-list>
 						<div ng-if="audio.MessageMessage.filename !== null">
 							<ion-item class="item-divider bar bar-positive"><span class="threeleaf">l</span>Now Playing</ion-item>
-							<ion-item class="row">
-								<div class="col">
-									<img ng-src="{{imageDir+audio.MessageSeries.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
-								</div>
-								<div class="col col-center">
-									{{audioStats.duration}} / {{audioStats.current}}
-								</div>
+							<ion-item>
+								<img ng-src="{{imageDir+audio.MessageSeries.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
 							</ion-item>
 							<ion-item class="row player_controls">
 								<div class="col"><span ng-click="pauseAudio()" class="threeleaf">p</span></div>
@@ -55,6 +50,14 @@
 							<ion-item>
 								<div id="player_progress" ng-click="scrubAudio($event)">
 									<div id="player_progress_indicator" style="width:{{audioStats.percentage}}%;">&nbsp;</div>
+								</div>
+								<div class="player_progress_timers">
+									<div class="player_progress_current">
+										{{audioStats.current}}
+									</div>
+									<div class="player_progress_duration">
+										{{audioStats.duration}}
+									</div>
 								</div>
 							</ion-item>
 						</div>

@@ -16,7 +16,7 @@ myApp.controller('NavCtrl', function ($scope, $sce, $ionicSideMenuDelegate, News
 	$scope.audioStats = {
 		current: 0,
 		duration: 0,
-		percentage: 0
+		percentage: 3
 	};
 	$scope.audioPlayer = null;
 	$scope.videoPlayer = null;
@@ -47,7 +47,12 @@ myApp.controller('NavCtrl', function ($scope, $sce, $ionicSideMenuDelegate, News
 		AudioFactory.set(DOMAIN+'/play/mp3/'+audio.MediaAudio.id+'/play.mp3');
 		AudioFactory.play();
 		AudioFactory.timer(function(duration,current) {
-			$scope.audioStats.percentage = (current/duration)*100;
+			var percentage = (current/duration)*100;
+			if(percentage < 3) {
+				$scope.audioStats.percentage = 3;
+			} else {
+				$scope.audioStats.percentage = percentage;
+			}
 			$scope.audioStats.duration = moment.unix(duration).format('mm:ss');
 			$scope.audioStats.current = moment.unix(current).format('mm:ss');
 			$scope.$apply();
@@ -99,6 +104,10 @@ myApp.controller('ArticleCtrl', function($scope, $stateParams, News) {
 
 myApp.controller('GroupsCtrl', function($scope, $stateParams, Groups) {
 	$scope.groups = Groups.groups();
+	$scope.selectedGroup = null;
+	if(typeof $stateParams.groupId !== 'undefined') {
+		$scope.selectedGroup = Groups.group($stateParams.groupId);
+	}
 });
 
 myApp.controller('PostCtrl', function($scope, $stateParams, $timeout, Community) {
@@ -128,7 +137,6 @@ myApp.controller('SeriesCtrl', function($scope, $stateParams, $location, Series)
 	$scope.selectedSermon = null;
 	if(typeof $stateParams.sermonId !== 'undefined') {
 		$scope.selectedSermon = Series.sermon($stateParams.sermonId);
-		console.log($scope.selectedSermon);
 	}
 	
 	if($scope.selectedSermon !== null) {

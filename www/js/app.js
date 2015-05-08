@@ -196,6 +196,16 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider)
 			}
 		}
 	});
+	
+	$stateProvider.state('tab.group', {
+		url: '/group/:groupId',
+		views: {
+			'tab-groups': {
+				templateUrl: 'templates/group.html',
+				controller: 'GroupsCtrl'
+			}
+		}
+	});
 
 	$stateProvider.state('tab.events', {
 		url: '/events',

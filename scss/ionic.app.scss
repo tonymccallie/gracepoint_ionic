@@ -193,7 +193,20 @@ body, h1, h2, h3, h4, h5, h6 {
 #player_progress {
 	border: solid 1px $positive;
 	#player_progress_indicator {
-		background: $positive;
+		background: #ccc;
+		border-right: solid 4px $positive;
+	}
+}
+
+.player_progress_timers {
+	width: 100%;
+	float: left;
+	div {
+		width: 50%;
+		float: left;
+	}
+	.player_progress_duration {
+		text-align: right;
 	}
 }
 
