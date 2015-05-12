@@ -161,11 +161,13 @@ myApp.service('Events', function($http, $location) {
 	var self = this;
 	var events = [];
 	self.update = function() {
-		var deferred = $http.get(DOMAIN + '/ajax/plugin/organization/organization_departments/json/bb4cad3b-01f6-4f56-a3f3-b2f425ba85fa')
+		//var deferred = $http.get(DOMAIN + '/ajax/plugin/organization/organization_departments/json/bb4cad3b-01f6-4f56-a3f3-b2f425ba85fa')
+		var deferred = $http.get(DOMAIN+'/ajax/plugin/bridge/bridge_ccb_events/listing')
 			.success(function(response, status, headers, config) {
+				//console.log(response.data);
 				if(response.status === 'SUCCESS') {
 					angular.forEach(response.data, function(item) {
-						item.displayDate = moment(item.OccurrenceStartTime).format("M/DD");
+						item.displayDate = moment(item.BridgeCcbEvent.event_date).format("M/DD");
 						events.push(item);
 					});
 				} else {
