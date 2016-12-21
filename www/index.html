@@ -7,8 +7,11 @@
 		<!-- compiled css output -->
 		<link href="css/ionic.app.css" rel="stylesheet">
 		<!-- ionic/angularjs js -->
+		
 		<script src="lib/ionic/js/ionic.bundle.js"></script>
-		<script src="lib/ionic/js/angular/angular-resource.js"></script>
+		<script src="lib/ionic-service-core/ionic-core.js"></script>
+		<script src="lib/ionic-service-push/ionic-push.js"></script>
+		<script src="lib/ngCordova/dist/ng-cordova.js"></script>
 		<!-- cordova script (this will be a 404 during development) -->
 		<script src="cordova.js"></script>
 		<!-- your app's js -->
@@ -35,7 +38,7 @@
 						<div ng-if="audio.MessageMessage.filename !== null">
 							<ion-item class="item-divider bar bar-positive"><span class="threeleaf">l</span>Now Playing</ion-item>
 							<ion-item>
-								<img ng-src="{{imageDir+audio.MessageSeries.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;" />
+								<img ng-src="{{imageDir+audio.MessageSeries.MediaImage.filename}}/width:800/height:450/crop:true/zoom:auto" style="width: 100%;">
 							</ion-item>
 							<ion-item class="row player_controls">
 								<div class="col"><span ng-click="pauseAudio()" class="threeleaf">p</span></div>
@@ -49,7 +52,7 @@
 							</ion-item>
 							<ion-item>
 								<div id="player_progress" ng-click="scrubAudio($event)">
-									<div id="player_progress_indicator" style="width:{{audioStats.percentage}}%;">&nbsp;</div>
+									<div id="player_progress_indicator" style="width:{{audioStats.percentage}}%;">&#xA0;</div>
 								</div>
 								<div class="player_progress_timers">
 									<div class="player_progress_current">
@@ -62,13 +65,13 @@
 							</ion-item>
 						</div>
 						<ion-item class="item-divider bar bar-positive"><span class="threeleaf">b</span>Menu</ion-item>
-						<ion-item nav-clear menu-close href="#/tab/about">About</ion-item>
-						<ion-item nav-clear menu-close href="#/tab/new">New to GracePoint</ion-item>
-						<ion-item nav-clear menu-close href="#/tab/giving">Giving</ion-item>
-						<ion-item nav-clear menu-close href="#/tab/contact">Contact</ion-item>
+						<ion-item nav-clear="" menu-close="" href="#/tab/about">About</ion-item>
+						<ion-item nav-clear="" menu-close="" href="#/tab/new">New to GracePoint</ion-item>
+						<ion-item nav-clear="" menu-close="" href="#/tab/giving">Giving</ion-item>
+						<ion-item nav-clear="" menu-close="" href="#/tab/contact">Contact</ion-item>
 						<ion-item class="item-divider bar bar-positive"><span class="threeleaf">g</span>App Info</ion-item>
-						<ion-item nav-clear menu-close href="#/tab/developer">Developer</ion-item>
-						<ion-item nav-clear menu-close href="#/tab/jesus">About Jesus</ion-item>
+						<ion-item nav-clear="" menu-close="" href="#/tab/developer">Developer</ion-item>
+						<ion-item nav-clear="" menu-close="" href="#/tab/jesus">About Jesus</ion-item>
 					</ion-list>
 				</ion-content>
 			</ion-side-menu>

@@ -11,6 +11,8 @@ if(devtest) {
 	isMobile = false;
 }
 
+var USER = {};
+
 var onclickFix = function(html) {
 	html = html.replace(/href=\"\//ig,'href="http://www.gracepointcoppell.org/');
 	html = html.replace(/src=\"\//ig,'src="http://www.gracepointcoppell.org/');
@@ -24,7 +26,7 @@ var onclickFix = function(html) {
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var myApp = angular.module('starter', ['ionic','ngResource'])
+var myApp = angular.module('starter', ['ionic','ionic.service.core','ionic.service.push'])
 
 myApp.run(function ($ionicPlatform, Community) {
 	$ionicPlatform.ready(function () {
@@ -45,6 +47,20 @@ myApp.filter('trusted', ['$sce', function ($sce) {
         return $sce.trustAsResourceUrl(url);
     };
 }]);
+
+myApp.run(function ($ionicPlatform) {
+	$ionicPlatform.ready(function () {
+		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+		// for form inputs)
+		if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+			cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+		}
+		if (window.StatusBar) {
+			// org.apache.cordova.statusbar required
+			StatusBar.styleLightContent();
+		}
+	});
+});
 
 myApp.factory('AudioFactory', function($document, $sce) {
 	var audioElement = new Audio();
@@ -95,13 +111,22 @@ myApp.factory('AudioFactory', function($document, $sce) {
 	}
 });
 
-myApp.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+myApp.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider,$ionicAppProvider) {
+	$ionicAppProvider.identify({
+		// The App ID (from apps.ionic.io) for the server
+		app_id: '49c13670',
+		// The public API key all services will use for this app
+		api_key: '3ec5ce284444eb6c515bc5602c0f6a1a6fbb202c9d2ae535',
+		dev_push: true
+	});
+	
 	// Ionic uses AngularUI Router which uses the concept of states
 	// Learn more here: https://github.com/angular-ui/ui-router
 	// Set up the various states which the app can be in.
 	// Each state's controller can be found in controllers.js
 	
 	$ionicConfigProvider.backButton.previousTitleText(false).text('<i class="threeleaf">5</i>').icon('');
+	$ionicConfigProvider.tabs.position('bottom');
 
 //	$stateProvider.state('app',{
 //		url: '/app',
